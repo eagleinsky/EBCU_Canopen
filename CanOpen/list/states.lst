@@ -1,0 +1,369 @@
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 1   
+
+
+C166 COMPILER V7.53.0.0, COMPILATION OF MODULE STATES
+OBJECT MODULE PLACED IN .\obj\states.obj
+COMPILER INVOKED BY: d:\Keil\C166\BIN\C166.EXE CANopen\src\states.c MODV2 BROWSE INCDIR(.\CANopen\include;.\CANopen\incl
+                    -ude\XC164_CANopen;.\CANopen) MODV2 DEBUG PRINT(.\list\states.lst) TABS(2) OBJECT(.\obj\states.obj) 
+
+ stmt lvl     source
+
+    1         /*
+    2         This file is part of CanFestival, a library implementing CanOpen Stack. 
+    3         
+    4         Copyright (C): Edouard TISSERANT and Francis DUPIN
+    5         
+    6         See COPYING file for copyrights details.
+    7         
+    8         This library is free software; you can redistribute it and/or
+    9         modify it under the terms of the GNU Lesser General Public
+   10         License as published by the Free Software Foundation; either
+   11         version 2.1 of the License, or (at your option) any later version.
+   12         
+   13         This library is distributed in the hope that it will be useful,
+   14         but WITHOUT ANY WARRANTY; without even the implied warranty of
+   15         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   16         Lesser General Public License for more details.
+   17         
+   18         You should have received a copy of the GNU Lesser General Public
+   19         License along with this library; if not, write to the Free Software
+   20         Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+   21         */
+   22         /*!
+   23         ** @file   states.c
+   24         ** @author Edouard TISSERANT and Francis DUPIN
+   25         ** @date   Tue Jun  5 09:32:32 2007
+   26         **
+   27         ** @brief
+   28         **
+   29         **
+   30         */
+   31         
+   32         #include "data.h"
+   33         #include "sysdep.h"
+   34         
+   35         /** Prototypes for internals functions */
+   36         /*!                                                                                                
+   37         **                                                                                                 
+   38         **                                                                                                 
+   39         ** @param d                                                                                        
+   40         ** @param newCommunicationState                                                                    
+   41         **/     
+   42         void switchCommunicationState(CO_Data* d, 
+   43           s_state_communication *newCommunicationState);
+   44           
+   45         /*!                                                                                                
+   46         **                                                                                                 
+   47         **                                                                                                 
+   48         ** @param d                                                                                        
+   49         **                                                                                                 
+   50         ** @return                                                                                         
+   51         **/    
+   52         e_nodeState getState(CO_Data* d)
+   53         {
+   54  1        return d->nodeState;
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 2   
+
+   55  1      }
+   56         
+   57         /*!                                                                                                
+   58         **                                                                                                 
+   59         **                                                                                                 
+   60         ** @param d                                                                                        
+   61         ** @param m                                                                                        
+   62         **/  
+   63         void canDispatch(CO_Data* d, Message *m)
+   64         {
+   65  1        //UNS16 cob_id = UNS16_LE(m->cob_id);
+   66  1        UNS16 cob_id = (m->cob_id);
+   67  1           switch(cob_id >> 7)
+   68  1        {
+   69  2          case SYNC:    /* can be a SYNC or a EMCY message */
+   70  2            if(cob_id == 0x080) /* SYNC */
+   71  2            {
+   72  3              if(d->CurrentCommunicationState.csSYNC)
+   73  3                proceedSYNC(d);
+   74  3            } else    /* EMCY */
+   75  2              if(d->CurrentCommunicationState.csEmergency)
+   76  2                proceedEMCY(d,m);
+   77  2            break;
+   78  2          /* case TIME_STAMP: */
+   79  2          case PDO1tx:
+   80  2          case PDO1rx:
+   81  2          case PDO2tx:
+   82  2          case PDO2rx:
+   83  2          case PDO3tx:
+   84  2          case PDO3rx:
+   85  2          case PDO4tx:
+   86  2          case PDO4rx:
+   87  2            if (d->CurrentCommunicationState.csPDO)
+   88  2              proceedPDO(d,m);
+   89  2            break;
+   90  2          case SDOtx:
+   91  2          case SDOrx:
+   92  2            if (d->CurrentCommunicationState.csSDO)
+   93  2              proceedSDO(d,m);
+   94  2            break;
+   95  2          case NODE_GUARD:
+   96  2      //      if (d->CurrentCommunicationState.csLifeGuard)
+   97  2      //        proceedNODE_GUARD(d,m);
+   98  2            break;
+   99  2          case NMT:
+  100  2            if (*(d->iam_a_slave))
+  101  2            {
+  102  3              proceedNMTstateChange(d,m);
+  103  3            }
+  104  2                  break;
+  105  2      #ifdef CO_ENABLE_LSS
+                  case LSS:
+                    if (!d->CurrentCommunicationState.csLSS)break;
+                    if ((*(d->iam_a_slave)) && cob_id==MLSS_ADRESS)
+                    {
+                      proceedLSS_Slave(d,m);
+                    }
+                    else if(!(*(d->iam_a_slave)) && cob_id==SLSS_ADRESS)
+                    {
+                      proceedLSS_Master(d,m);
+                    }
+                    break;
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 3   
+
+              #endif
+  118  2        }
+  119  1      }
+  120         
+  121         #define StartOrStop(CommType, FuncStart, FuncStop) \
+  122           if(newCommunicationState->CommType && d->CurrentCommunicationState.CommType == 0){\
+  123             MSG_WAR(0x9999,#FuncStart, 9999);\
+  124             d->CurrentCommunicationState.CommType = 1;\
+  125             FuncStart;\
+  126           }else if(!newCommunicationState->CommType && d->CurrentCommunicationState.CommType == 1){\
+  127             MSG_WAR(0x9999,#FuncStop, 9999);\
+  128             d->CurrentCommunicationState.CommType = 0;\
+  129             FuncStop;\
+  130           }
+  131         #define None
+  132         
+  133         /*!                                                                                                
+  134         **                                                                                                 
+  135         **                                                                                                 
+  136         ** @param d                                                                                        
+  137         ** @param newCommunicationState                                                                    
+  138         **/   
+  139         void switchCommunicationState(CO_Data* d, s_state_communication *newCommunicationState)
+  140         {
+  141  1      #ifdef CO_ENABLE_LSS
+                StartOrStop(csLSS,  startLSS(d),  stopLSS(d))
+              #endif
+  144  1        StartOrStop(csSDO,  None,   resetSDO(d))
+  145  1      //  StartOrStop(csSYNC, startSYNC(d),   stopSYNC(d))
+  146  1      //  StartOrStop(csLifeGuard,  lifeGuardInit(d), lifeGuardStop(d))
+  147  1      //  StartOrStop(csEmergency,  emergencyInit(d), emergencyStop(d)) 
+  148  1      //  StartOrStop(csPDO,  PDOInit(d), PDOStop(d))
+  149  1      //  StartOrStop(csBoot_Up,  None, slaveSendBootUp(d))
+  150  1      }
+  151         
+  152         /*!                                                                                                
+  153         **                                                                                                 
+  154         **                                                                                                 
+  155         ** @param d                                                                                        
+  156         ** @param newState                                                                                 
+  157         **                                                                                                 
+  158         ** @return                                                                                         
+  159         **/  
+  160         UNS8 setState(CO_Data* d, e_nodeState newState)
+  161         {
+  162  1        if(newState != d->nodeState){
+  163  2          switch( newState ){
+  164  3            case Initialisation:
+  165  3            {
+  166  4              s_state_communication newCommunicationState = {1, 0, 0, 0, 0, 0, 0};
+  167  4              d->nodeState = Initialisation;
+  168  4              switchCommunicationState(d, &newCommunicationState);
+  169  4              /* call user app init callback now. */
+  170  4              /* d->initialisation MUST NOT CALL SetState */
+  171  4              (*d->initialisation)(d);        
+  172  4            }
+  173  3      
+  174  3            /* Automatic transition - No break statement ! */
+  175  3            /* Transition from Initialisation to Pre_operational */
+  176  3            /* is automatic as defined in DS301. */
+  177  3            /* App don't have to call SetState(d, Pre_operational) */
+  178  3                      
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 4   
+
+  179  3            case Pre_operational:
+  180  3            {
+  181  4              
+  182  4              s_state_communication newCommunicationState = {0, 1, 1, 1, 1, 0, 1};
+  183  4              d->nodeState = Pre_operational;
+  184  4              switchCommunicationState(d, &newCommunicationState);
+  185  4                      (*d->preOperational)(d);
+  186  4            }
+  187  3            break;
+  188  3                      
+  189  3            case Operational:
+  190  3            if(d->nodeState == Initialisation) return 0xFF;
+  191  3            {
+  192  4              s_state_communication newCommunicationState = {0, 1, 1, 1, 1, 1, 0};
+  193  4              d->nodeState = Operational;
+  194  4              newState = Operational;
+  195  4              switchCommunicationState(d, &newCommunicationState);
+  196  4              (*d->operational)(d);
+  197  4            }
+  198  3            break;
+  199  3                  
+  200  3            case Stopped:
+  201  3            if(d->nodeState == Initialisation) return 0xFF;
+  202  3            {
+  203  4              s_state_communication newCommunicationState = {0, 0, 0, 0, 1, 0, 1};
+  204  4              d->nodeState = Stopped;
+  205  4              newState = Stopped;
+  206  4              switchCommunicationState(d, &newCommunicationState);
+  207  4              (*d->stopped)(d);
+  208  4            }
+  209  3            break;
+  210  3            default:
+  211  3              return 0xFF;
+  212  3      
+  213  3          }/* end switch case */
+  214  2        
+  215  2        }
+  216  1        /* d->nodeState contains the final state */
+  217  1        /* may not be the requested state */
+  218  1          return d->nodeState;  
+  219  1      }
+  220         
+  221         /*!                                                                                                
+  222         **                                                                                                 
+  223         **                                                                                                 
+  224         ** @param d                                                                                        
+  225         **                                                                                                 
+  226         ** @return                                                                                         
+  227         **/ 
+  228         UNS8 getNodeId(CO_Data* d)
+  229         {
+  230  1        return *d->bDeviceNodeId;
+  231  1      }
+  232         
+  233         /*!                                                                                                
+  234         **                                                                                                 
+  235         **                                                                                                 
+  236         ** @param d                                                                                        
+  237         ** @param nodeId                                                                                   
+  238         **/   
+  239         void setNodeId(CO_Data* d, UNS8 nodeId)
+  240         {
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 5   
+
+  241  1        UNS16 offset = d->firstIndex->SDO_SVR;
+  242  1        
+  243  1      #ifdef CO_ENABLE_LSS
+                d->lss_transfer.nodeID=nodeId;
+                if(nodeId==0xFF){
+                  *d->bDeviceNodeId = nodeId;
+                  return;
+                }
+                else
+              #endif
+  251  1        if(!(nodeId>0 && nodeId<=127)){
+  252  2          MSG_WAR(0x2D01, "Invalid NodeID",nodeId);
+  253  2          return;
+  254  2        }
+  255  1      
+  256  1        if(offset){
+  257  2          /* Adjust COB-ID Client->Server (rx) only id already set to default value or id not valid (id==0xFF)*/
+  258  2          if((*(UNS32*)d->objdict[offset].pSubindex[1].pObject == 0x600 + *d->bDeviceNodeId)||(*d->bDeviceNodeId
+             -==0xFF)){
+  259  3            /* cob_id_client = 0x600 + nodeId; */
+  260  3            *(UNS32*)d->objdict[offset].pSubindex[1].pObject = 0x600 + nodeId;
+  261  3          }
+  262  2          /* Adjust COB-ID Server -> Client (tx) only id already set to default value or id not valid (id==0xFF)
+             -*/
+  263  2          if((*(UNS32*)d->objdict[offset].pSubindex[2].pObject == 0x580 + *d->bDeviceNodeId)||(*d->bDeviceNodeId
+             -==0xFF)){
+  264  3            /* cob_id_server = 0x580 + nodeId; */
+  265  3            *(UNS32*)d->objdict[offset].pSubindex[2].pObject = 0x580 + nodeId;
+  266  3          }
+  267  2        }
+  268  1      
+  269  1        /* 
+  270  1          Initialize the server(s) SDO parameters
+  271  1          Remember that only one SDO server is allowed, defined at index 0x1200 
+  272  1          
+  273  1          Initialize the client(s) SDO parameters   
+  274  1          Nothing to initialize (no default values required by the DS 401)  
+  275  1          Initialize the receive PDO communication parameters. Only for 0x1400 to 0x1403 
+  276  1        */
+  277  1        {
+  278  2          UNS8 i = 0;
+  279  2          UNS16 offset = d->firstIndex->PDO_RCV;
+  280  2          UNS16 lastIndex = d->lastIndex->PDO_RCV;
+  281  2          UNS32 cobID[] = {0x200, 0x300, 0x400, 0x500};
+  282  2          if( offset ) while( (offset <= lastIndex) && (i < 4)) {
+  283  3            if((*(UNS32*)d->objdict[offset].pSubindex[1].pObject == cobID[i] + *d->bDeviceNodeId)||(*d->bDeviceN
+             -odeId==0xFF))
+  284  3              *(UNS32*)d->objdict[offset].pSubindex[1].pObject = cobID[i] + nodeId;
+  285  3            i ++;
+  286  3            offset ++;
+  287  3          }
+  288  2        }
+  289  1        /* ** Initialize the transmit PDO communication parameters. Only for 0x1800 to 0x1803 */
+  290  1        {
+  291  2          UNS8 i = 0;
+  292  2          UNS16 offset = d->firstIndex->PDO_TRS;
+  293  2          UNS16 lastIndex = d->lastIndex->PDO_TRS;
+  294  2          UNS32 cobID[] = {0x180, 0x280, 0x380, 0x480};
+  295  2          i = 0;
+  296  2          if( offset ) while ((offset <= lastIndex) && (i < 4)) {
+  297  3            if((*(UNS32*)d->objdict[offset].pSubindex[1].pObject == cobID[i] + *d->bDeviceNodeId)||(*d->bDeviceN
+             -odeId==0xFF))
+C166 COMPILER V7.53.0.0, STATES                                                            09/09/2014 14:34:54 PAGE 6   
+
+  298  3              *(UNS32*)d->objdict[offset].pSubindex[1].pObject = cobID[i] + nodeId;
+  299  3            i ++;
+  300  3            offset ++;
+  301  3          }
+  302  2        }
+  303  1      
+  304  1        /* Update EMCY COB-ID if already set to default*/
+  305  1        if((*d->error_cobid == *d->bDeviceNodeId + 0x80)||(*d->bDeviceNodeId==0xFF))
+  306  1          *d->error_cobid = nodeId + 0x80;
+  307  1      
+  308  1        /* bDeviceNodeId is defined in the object dictionary. */
+  309  1        *d->bDeviceNodeId = nodeId;
+  310  1      }
+  311         
+  312         void _initialisation(CO_Data* d){}
+*** WARNING C47 IN LINE 312 OF CANopen\src\states.c: 'd': unreferenced parameter
+  313         void _preOperational(CO_Data* d){
+  314  1          if (!(*(d->iam_a_slave)))
+  315  1          {
+  316  2              masterSendNMTstateChange (d, 0, NMT_Reset_Node);
+  317  2          }
+  318  1      }
+  319         void _operational(CO_Data* d){}
+*** WARNING C47 IN LINE 319 OF CANopen\src\states.c: 'd': unreferenced parameter
+  320         void _stopped(CO_Data* d){}
+*** WARNING C47 IN LINE 320 OF CANopen\src\states.c: 'd': unreferenced parameter
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+  CODE SIZE        =        1078     --------
+  NEAR-CONST SIZE  =          60     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =    --------     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

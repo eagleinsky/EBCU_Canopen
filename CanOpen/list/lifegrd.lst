@@ -1,0 +1,438 @@
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 1   
+
+
+C166 COMPILER V7.53.0.0, COMPILATION OF MODULE LIFEGRD
+OBJECT MODULE PLACED IN .\obj\lifegrd.obj
+COMPILER INVOKED BY: d:\Keil\C166\BIN\C166.EXE CANopen\src\lifegrd.c MODV2 BROWSE INCDIR(.\CANopen\include;.\CANopen\inc
+                    -lude\XC164_CANopen;.\CANopen) MODV2 DEBUG PRINT(.\list\lifegrd.lst) TABS(2) OBJECT(.\obj\lifegrd.obj) 
+
+ stmt lvl     source
+
+    1         /*
+    2           This file is part of CanFestival, a library implementing CanOpen
+    3           Stack.
+    4         
+    5           Copyright (C): Edouard TISSERANT and Francis DUPIN
+    6         
+    7           See COPYING file for copyrights details.
+    8         
+    9           This library is free software; you can redistribute it and/or
+   10           modify it under the terms of the GNU Lesser General Public
+   11           License as published by the Free Software Foundation; either
+   12           version 2.1 of the License, or (at your option) any later version.
+   13         
+   14           This library is distributed in the hope that it will be useful,
+   15           but WITHOUT ANY WARRANTY; without even the implied warranty of
+   16           MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   17           Lesser General Public License for more details.
+   18         
+   19           You should have received a copy of the GNU Lesser General Public
+   20           License along with this library; if not, write to the Free Software
+   21           Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+   22           USA
+   23         */
+   24         
+   25         /*!
+   26         ** @file   lifegrd.c
+   27         ** @author Edouard TISSERANT
+   28         ** @date   Mon Jun  4 17:19:24 2007
+   29         **
+   30         ** @brief
+   31         **
+   32         **
+   33         */
+   34         
+   35         #include <data.h>
+   36         #include "lifegrd.h"
+   37         #include "canfestival.h"
+   38         #include "dcf.h"
+   39         #include "sysdep.h"
+   40         
+   41         
+   42         void ConsumerHeartbeatAlarm(CO_Data* d, UNS32 id);
+   43         void ProducerHeartbeatAlarm(CO_Data* d, UNS32 id);
+   44         UNS32 OnHearbeatProducerUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex);
+   45         
+   46         void GuardTimeAlarm(CO_Data* d, UNS32 id);
+   47         UNS32 OnNodeGuardUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex);
+   48         
+   49         
+   50         e_nodeState getNodeState (CO_Data* d, UNS8 nodeId)
+   51         {
+   52  1        e_nodeState networkNodeState = Unknown_state;
+   53  1        #if NMT_MAX_NODE_ID>0
+   54  1        if(nodeId < NMT_MAX_NODE_ID)
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 2   
+
+   55  1          networkNodeState = d->NMTable[nodeId];
+   56  1        #endif
+   57  1        return networkNodeState;
+   58  1      }
+   59         
+   60         /*! 
+   61         ** The Consumer Timer Callback
+   62         **
+   63         ** @param d
+   64         ** @param id
+   65          * @ingroup heartbeato
+   66         **/
+   67         void ConsumerHeartbeatAlarm(CO_Data* d, UNS32 id)
+   68         {
+   69  1        UNS8 nodeId = (UNS8)(((d->ConsumerHeartbeatEntries[id]) & (UNS32)0x00FF0000) >> (UNS8)16);
+   70  1        /*MSG_WAR(0x00, "ConsumerHearbeatAlarm", 0x00);*/
+   71  1      
+   72  1        /* timer have been notified and is now free (non periodic)*/
+   73  1        /* -> avoid deleting re-assigned timer if message is received too late*/
+   74  1        d->ConsumerHeartBeatTimers[id]=TIMER_NONE;
+   75  1        
+   76  1        /* set node state */
+   77  1        d->NMTable[nodeId] = Disconnected;
+   78  1        /*! call heartbeat error with NodeId */
+   79  1        (*d->heartbeatError)(d, nodeId);
+   80  1      }
+   81         
+   82         void proceedNODE_GUARD(CO_Data* d, Message* m )
+   83         {
+   84  1        UNS8 nodeId = (UNS8) GET_NODE_ID((*m));
+   85  1      
+   86  1        if((m->rtr == 1) )
+   87  1          /*!
+   88  1          ** Notice that only the master can have sent this
+   89  1          ** node guarding request
+   90  1          */
+   91  1          {
+   92  2            /*!
+   93  2            ** Receiving a NMT NodeGuarding (request of the state by the
+   94  2            ** master)
+   95  2            ** Only answer to the NMT NodeGuarding request, the master is
+   96  2            ** not checked (not implemented)
+   97  2            */
+   98  2            if (nodeId == *d->bDeviceNodeId )
+   99  2              {
+  100  3                Message msg;
+  101  3                UNS16 tmp = *d->bDeviceNodeId + 0x700;
+  102  3                msg.cob_id = UNS16_LE(tmp);
+  103  3                msg.len = (UNS8)0x01;
+  104  3                msg.rtr = 0;
+  105  3                msg.data[0] = d->nodeState;
+*** WARNING C192 IN LINE 105 OF CANopen\src\lifegrd.c: '=': value truncated
+  106  3                if (d->toggle)
+  107  3                  {
+  108  4                    msg.data[0] |= 0x80 ;
+  109  4                    d->toggle = 0 ;
+  110  4                  }
+  111  3                else
+  112  3                  d->toggle = 1 ;
+  113  3                /* send the nodeguard response. */
+  114  3                MSG_WAR(0x3130, "Sending NMT Nodeguard to master, state: ", d->nodeState);
+  115  3                canSend(d->canHandle,&msg );
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 3   
+
+*** WARNING C140 IN LINE 115 OF CANopen\src\lifegrd.c: 'canSend' undefined; assuming 'extern int canSend()'
+  116  3              }
+  117  2      
+  118  2          }else{ /* Not a request CAN */
+  119  2            /* The state is stored on 7 bit */
+  120  2            e_nodeState newNodeState = (e_nodeState) ((*m).data[0] & 0x7F);
+  121  2      
+  122  2            MSG_WAR(0x3110, "Received NMT nodeId : ", nodeId);
+  123  2            
+  124  2            /*!
+  125  2            ** Record node response for node guarding service
+  126  2            */
+  127  2            d->nodeGuardStatus[nodeId] = *d->LifeTimeFactor;
+  128  2      
+  129  2            if (d->NMTable[nodeId] != newNodeState)
+  130  2            {
+  131  3              (*d->post_SlaveStateChange)(d, nodeId, newNodeState);
+  132  3              /* the slave's state receievd is stored in the NMTable */
+  133  3              d->NMTable[nodeId] = newNodeState;
+  134  3            }
+  135  2      
+  136  2            /* Boot-Up frame reception */
+  137  2            if ( d->NMTable[nodeId] == Initialisation)
+  138  2            {
+  139  3                /*
+  140  3                ** The device send the boot-up message (Initialisation)
+  141  3                ** to indicate the master that it is entered in
+  142  3                ** pre_operational mode
+  143  3                */
+  144  3                MSG_WAR(0x3100, "The NMT is a bootup from node : ", nodeId);
+  145  3                /* call post SlaveBootup with NodeId */
+  146  3            (*d->post_SlaveBootup)(d, nodeId);
+  147  3            }
+  148  2      
+  149  2            if( d->NMTable[nodeId] != Unknown_state ) {
+  150  3              UNS8 index, ConsumerHeartBeat_nodeId ;
+  151  3              for( index = (UNS8)0x00; index < *d->ConsumerHeartbeatCount; index++ )
+  152  3                {
+  153  4                  ConsumerHeartBeat_nodeId = (UNS8)( ((d->ConsumerHeartbeatEntries[index]) & (UNS32)0x00FF0000) 
+             ->> (UNS8)16 );
+  154  4                  if ( nodeId == ConsumerHeartBeat_nodeId )
+  155  4                    {
+  156  5                      TIMEVAL time = ( (d->ConsumerHeartbeatEntries[index]) & (UNS32)0x0000FFFF ) ;
+  157  5                      /* Renew alarm for next heartbeat. */
+  158  5                      DelAlarm(d->ConsumerHeartBeatTimers[index]);
+  159  5                      d->ConsumerHeartBeatTimers[index] = SetAlarm(d, index, &ConsumerHeartbeatAlarm, MS_TO_TIME
+             -VAL(time), 0);
+  160  5                    }
+  161  4                }
+  162  3            }
+  163  2          }
+  164  1      }
+  165         
+  166         /*! The Producer Timer Callback
+  167         **
+  168         **
+  169         ** @param d
+  170         ** @param id
+  171          * @ingroup heartbeato
+  172         **/
+  173         void ProducerHeartbeatAlarm(CO_Data* d, UNS32 id)
+  174         {
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 4   
+
+  175  1        if(*d->ProducerHeartBeatTime)
+  176  1          {
+  177  2            Message msg;
+  178  2            /* Time expired, the heartbeat must be sent immediately
+  179  2            ** generate the correct node-id: this is done by the offset 1792
+  180  2            ** (decimal) and additionaly
+  181  2            ** the node-id of this device.
+  182  2            */
+  183  2            UNS16 tmp = *d->bDeviceNodeId + 0x700;
+  184  2            msg.cob_id = UNS16_LE(tmp);
+  185  2            msg.len = (UNS8)0x01;
+  186  2            msg.rtr = 0;
+  187  2            msg.data[0] = d->nodeState; /* No toggle for heartbeat !*/
+*** WARNING C192 IN LINE 187 OF CANopen\src\lifegrd.c: '=': value truncated
+  188  2            /* send the heartbeat */
+  189  2            MSG_WAR(0x3130, "Producing heartbeat: ", d->nodeState);
+  190  2            canSend(d->canHandle,&msg );
+  191  2      
+  192  2          }else{
+  193  2            d->ProducerHeartBeatTimer = DelAlarm(d->ProducerHeartBeatTimer);
+  194  2          }
+  195  1      }
+*** WARNING C47 IN LINE 173 OF CANopen\src\lifegrd.c: 'id': unreferenced parameter
+  196         
+  197         /**
+  198          * @brief The guardTime - Timer Callback.
+  199          * 
+  200          * This function is called every GuardTime (OD 0x100C) ms <br>
+  201          * On every call, a NodeGuard-Request is sent to all nodes which have a
+  202          * node-state not equal to "Unknown" (according to NMTable). If the node has
+  203          * not responded within the lifetime, the nodeguardError function is called and
+  204          * the status of this node is set to "Disconnected"
+  205          *
+  206          * @param d   Pointer on a CAN object data structure 
+  207          * @param id
+  208          * @ingroup nodeguardo
+  209          */
+  210         void GuardTimeAlarm(CO_Data* d, UNS32 id)
+  211         {
+  212  1        if (*d->GuardTime) {
+  213  2          UNS8 i;
+  214  2      
+  215  2          MSG_WAR(0x00, "Producing nodeguard-requests: ", 0);
+  216  2      
+  217  2          for (i = 0; i < NMT_MAX_NODE_ID; i++) {
+  218  3            /** Send node guard request to all nodes except this node, if the 
+  219  3            * node state is not "Unknown_state"
+  220  3            */
+  221  3            if (d->NMTable[i] != Unknown_state && i != *d->bDeviceNodeId) {
+  222  4      
+  223  4              /** Check if the node has confirmed the guarding request within
+  224  4              * the LifeTime (GuardTime x LifeTimeFactor)
+  225  4              */
+  226  4              if (d->nodeGuardStatus[i] <= 0) {
+  227  5      
+  228  5                MSG_WAR(0x00, "Node Guard alarm for nodeId : ", i);
+  229  5      
+  230  5                // Call error-callback function
+  231  5                if (*d->nodeguardError) {
+  232  6                  (*d->nodeguardError)(d, i);
+  233  6                }
+  234  5      
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 5   
+
+  235  5                // Mark node as disconnected
+  236  5                d->NMTable[i] = Disconnected;
+  237  5      
+  238  5              }
+  239  4      
+  240  4              d->nodeGuardStatus[i]--;
+  241  4      
+  242  4              masterSendNMTnodeguard(d, i);
+  243  4      
+  244  4            }
+  245  3          }
+  246  2        } else {
+  247  2          d->GuardTimeTimer = DelAlarm(d->GuardTimeTimer);
+  248  2        }
+  249  1      
+  250  1      
+  251  1      
+  252  1      }
+*** WARNING C47 IN LINE 210 OF CANopen\src\lifegrd.c: 'id': unreferenced parameter
+  253         
+  254         /**
+  255          * This function is called, if index 0x100C or 0x100D is updated to
+  256          * restart the node-guarding service with the new parameters
+  257          *
+  258          * @param d   Pointer on a CAN object data structure 
+  259          * @param unused_indextable
+  260          * @param unused_bSubindex
+  261          * @ingroup nodeguardo
+  262          */
+  263         UNS32 OnNodeGuardUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex)
+  264         {
+  265  1        nodeguardStop(d);
+  266  1        nodeguardInit(d);
+  267  1        return 0;
+  268  1      }
+*** WARNING C47 IN LINE 263 OF CANopen\src\lifegrd.c: 'unused_indextable': unreferenced parameter
+*** WARNING C47 IN LINE 263 OF CANopen\src\lifegrd.c: 'unused_bSubindex': unreferenced parameter
+  269         
+  270         
+  271         /*! This is called when Index 0x1017 is updated.
+  272         **
+  273         **
+  274         ** @param d
+  275         ** @param unused_indextable
+  276         ** @param unused_bSubindex
+  277         **
+  278         ** @return
+  279          * @ingroup heartbeato
+  280         **/
+  281         UNS32 OnHeartbeatProducerUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex)
+  282         {
+  283  1        heartbeatStop(d);
+  284  1        heartbeatInit(d);
+  285  1        return 0;
+  286  1      }
+*** WARNING C47 IN LINE 281 OF CANopen\src\lifegrd.c: 'unused_indextable': unreferenced parameter
+*** WARNING C47 IN LINE 281 OF CANopen\src\lifegrd.c: 'unused_bSubindex': unreferenced parameter
+  287         
+  288         void heartbeatInit(CO_Data* d)
+  289         {
+  290  1      
+  291  1        UNS8 index; /* Index to scan the table of heartbeat consumers */
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 6   
+
+  292  1        RegisterSetODentryCallBack(d, 0x1017, 0x00, &OnHeartbeatProducerUpdate);
+  293  1      
+  294  1        d->toggle = 0;
+  295  1      
+  296  1        for( index = (UNS8)0x00; index < *d->ConsumerHeartbeatCount; index++ )
+  297  1          {
+  298  2            TIMEVAL time = (UNS16) ( (d->ConsumerHeartbeatEntries[index]) & (UNS32)0x0000FFFF ) ;
+  299  2            if ( time )
+  300  2              {
+  301  3                d->ConsumerHeartBeatTimers[index] = SetAlarm(d, index, &ConsumerHeartbeatAlarm, MS_TO_TIMEVAL(ti
+             -me), 0);
+  302  3              }
+  303  2          }
+  304  1      
+  305  1        if ( *d->ProducerHeartBeatTime )
+  306  1          {
+  307  2            TIMEVAL time = *d->ProducerHeartBeatTime;
+  308  2            d->ProducerHeartBeatTimer = SetAlarm(d, 0, &ProducerHeartbeatAlarm, MS_TO_TIMEVAL(time), MS_TO_TIMEV
+             -AL(time));
+  309  2          }
+  310  1      }
+  311         
+  312         
+  313         void nodeguardInit(CO_Data* d)
+  314         {
+  315  1      
+  316  1        RegisterSetODentryCallBack(d, 0x100C, 0x00, &OnNodeGuardUpdate);
+  317  1        RegisterSetODentryCallBack(d, 0x100D, 0x00, &OnNodeGuardUpdate);
+  318  1      
+  319  1        if (*d->GuardTime && *d->LifeTimeFactor) {
+  320  2          UNS8 i;
+  321  2      
+  322  2          TIMEVAL time = *d->GuardTime;
+  323  2          d->GuardTimeTimer = SetAlarm(d, 0, &GuardTimeAlarm, MS_TO_TIMEVAL(time), MS_TO_TIMEVAL(time));
+  324  2          MSG_WAR(0x0, "GuardTime: ", time);
+  325  2      
+  326  2          for (i = 0; i < NMT_MAX_NODE_ID; i++) {
+  327  3            /** Set initial value for the nodes */
+  328  3            if (d->NMTable[i] != Unknown_state && i != *d->bDeviceNodeId) { 
+  329  4              d->nodeGuardStatus[i] = *d->LifeTimeFactor;
+  330  4            }
+  331  3          }
+  332  2      
+  333  2          MSG_WAR(0x0, "Timer for node-guarding startet", 0);
+  334  2        }
+  335  1      
+  336  1      }
+  337         
+  338         void heartbeatStop(CO_Data* d)
+  339         {
+  340  1        UNS8 index;
+  341  1        for( index = (UNS8)0x00; index < *d->ConsumerHeartbeatCount; index++ )
+  342  1          {
+  343  2            d->ConsumerHeartBeatTimers[index] = DelAlarm(d->ConsumerHeartBeatTimers[index]);
+  344  2          }
+  345  1      
+  346  1        d->ProducerHeartBeatTimer = DelAlarm(d->ProducerHeartBeatTimer);
+  347  1      }
+  348         
+  349         void nodeguardStop(CO_Data* d)
+  350         {
+  351  1        d->GuardTimeTimer = DelAlarm(d->GuardTimeTimer);
+C166 COMPILER V7.53.0.0, LIFEGRD                                                           09/09/2014 14:34:51 PAGE 7   
+
+  352  1      }
+  353         
+  354         
+  355         void lifeGuardInit(CO_Data* d)
+  356         {
+  357  1        heartbeatInit(d);
+  358  1        nodeguardInit(d);
+  359  1      }
+  360         
+  361         
+  362         void lifeGuardStop(CO_Data* d)
+  363         {
+  364  1        heartbeatStop(d);
+  365  1        nodeguardStop(d);
+  366  1      }
+  367         
+  368         
+  369         void _heartbeatError(CO_Data* d, UNS8 heartbeatID){}
+*** WARNING C47 IN LINE 369 OF CANopen\src\lifegrd.c: 'd': unreferenced parameter
+*** WARNING C47 IN LINE 369 OF CANopen\src\lifegrd.c: 'heartbeatID': unreferenced parameter
+  370         void _post_SlaveBootup(CO_Data* d, UNS8 SlaveID){}
+*** WARNING C47 IN LINE 370 OF CANopen\src\lifegrd.c: 'd': unreferenced parameter
+*** WARNING C47 IN LINE 370 OF CANopen\src\lifegrd.c: 'SlaveID': unreferenced parameter
+  371         void _post_SlaveStateChange(CO_Data* d, UNS8 nodeId, e_nodeState newNodeState){}
+*** WARNING C47 IN LINE 371 OF CANopen\src\lifegrd.c: 'd': unreferenced parameter
+*** WARNING C47 IN LINE 371 OF CANopen\src\lifegrd.c: 'nodeId': unreferenced parameter
+*** WARNING C47 IN LINE 371 OF CANopen\src\lifegrd.c: 'newNodeState': unreferenced parameter
+  372         void _nodeguardError(CO_Data* d, UNS8 id){}
+*** WARNING C47 IN LINE 372 OF CANopen\src\lifegrd.c: 'd': unreferenced parameter
+*** WARNING C47 IN LINE 372 OF CANopen\src\lifegrd.c: 'id': unreferenced parameter
+  373         
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+  CODE SIZE        =        1234     --------
+  NEAR-CONST SIZE  =    --------     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =    --------     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  18 WARNING(S),  0 ERROR(S)

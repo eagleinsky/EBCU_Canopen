@@ -1,0 +1,2113 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\voyager\Desktop\调试工程\CanOpen\canopen.uvproj
+Project File Date:  09/05/2014
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling dcf.c...
+CANopen\src\dcf.c(59): error C42: 'start_node': not in formal parameter list
+CANopen\src\dcf.c(59): error C25: syntax error near '{'
+CANopen\src\dcf.c(71): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(71): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(83): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(83): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(103): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(103): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(167): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(167): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(171): error C42: 'Callback': not in formal parameter list
+CANopen\src\dcf.c(172): error C42: 'dcf': not in formal parameter list
+CANopen\src\dcf.c(173): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(173): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(173): error C25: syntax error near '->'
+CANopen\src\dcf.c(173): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(173): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(190): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(190): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(190): error C25: syntax error near 'dcf_entry_t'
+CANopen\src\dcf.c(190): warning C34: 'dcf_entry': missing declaration specifiers
+CANopen\src\dcf.c(190): error C42: 'dcf_entry': not in formal parameter list
+CANopen\src\dcf.c(190): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(192): warning C34: 'dcfend': missing declaration specifiers
+CANopen\src\dcf.c(192): error C42: 'dcfend': not in formal parameter list
+CANopen\src\dcf.c(193): error C42: 'nb_entries': not in formal parameter list
+CANopen\src\dcf.c(194): error C42: 'szData': not in formal parameter list
+CANopen\src\dcf.c(195): error C42: 'dcf': not in formal parameter list
+CANopen\src\dcf.c(196): error C25: syntax error near 'if'
+CANopen\src\dcf.c(196): error C25: syntax error near '!'
+CANopen\src\dcf.c(196): error C25: syntax error near '->'
+CANopen\src\dcf.c(196): error C7: compilation aborted
+CANopen\src\dcf.c(49): warning C174: 'read_consise_dcf_next_entry': unreferenced 'static' function
+CANopen\src\dcf.c(49): warning C64: 'read_consise_dcf_next_entry': static function declared but not defined
+CANopen\src\dcf.c(50): warning C174: 'write_consise_dcf_next_entry': unreferenced 'static' function
+CANopen\src\dcf.c(50): warning C64: 'write_consise_dcf_next_entry': static function declared but not defined
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+compiling nmtSlave.c...
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling symbols.c...
+CANopen\src\symbols.c(1): error C318: can't open file 'linux/module.h'
+.\CANopen\include\timers_driver.h(48): error C25: syntax error near '*'
+.\CANopen\include\timers_driver.h(82): error C25: syntax error near '*'
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+.\CANopen\include\XC164_CANopen\can_xc164.h(5): error C318: can't open file 'PELI.H'
+CANopen\drivers\XC164\can_xc164.c(9): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(29): error C53: redefinition of 'canReceive': number of parameters different
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(37): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(28): warning C47: 'm': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'baud': unreferenced parameter
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling dcf.c...
+CANopen\src\dcf.c(59): error C42: 'start_node': not in formal parameter list
+CANopen\src\dcf.c(59): error C25: syntax error near '{'
+CANopen\src\dcf.c(71): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(71): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(83): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(83): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(103): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(103): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(167): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(167): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(171): error C42: 'Callback': not in formal parameter list
+CANopen\src\dcf.c(172): error C42: 'dcf': not in formal parameter list
+CANopen\src\dcf.c(173): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(173): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(173): error C25: syntax error near '->'
+CANopen\src\dcf.c(173): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(173): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(190): warning C34: 'd': missing declaration specifiers
+CANopen\src\dcf.c(190): error C42: 'd': not in formal parameter list
+CANopen\src\dcf.c(190): error C25: syntax error near 'dcf_entry_t'
+CANopen\src\dcf.c(190): warning C34: 'dcf_entry': missing declaration specifiers
+CANopen\src\dcf.c(190): error C42: 'dcf_entry': not in formal parameter list
+CANopen\src\dcf.c(190): error C25: syntax error near 'unsigned'
+CANopen\src\dcf.c(192): warning C34: 'dcfend': missing declaration specifiers
+CANopen\src\dcf.c(192): error C42: 'dcfend': not in formal parameter list
+CANopen\src\dcf.c(193): error C42: 'nb_entries': not in formal parameter list
+CANopen\src\dcf.c(194): error C42: 'szData': not in formal parameter list
+CANopen\src\dcf.c(195): error C42: 'dcf': not in formal parameter list
+CANopen\src\dcf.c(196): error C25: syntax error near 'if'
+CANopen\src\dcf.c(196): error C25: syntax error near '!'
+CANopen\src\dcf.c(196): error C25: syntax error near '->'
+CANopen\src\dcf.c(196): error C7: compilation aborted
+CANopen\src\dcf.c(49): warning C174: 'read_consise_dcf_next_entry': unreferenced 'static' function
+CANopen\src\dcf.c(49): warning C64: 'read_consise_dcf_next_entry': static function declared but not defined
+CANopen\src\dcf.c(50): warning C174: 'write_consise_dcf_next_entry': unreferenced 'static' function
+CANopen\src\dcf.c(50): warning C64: 'write_consise_dcf_next_entry': static function declared but not defined
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+compiling nmtSlave.c...
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling symbols.c...
+CANopen\src\symbols.c(1): error C318: can't open file 'linux/module.h'
+.\CANopen\include\timers_driver.h(48): error C25: syntax error near '*'
+.\CANopen\include\timers_driver.h(82): error C25: syntax error near '*'
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(9): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(29): error C53: redefinition of 'canReceive': number of parameters different
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(37): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(28): warning C47: 'm': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'baud': unreferenced parameter
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+compiling nmtSlave.c...
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(9): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(29): error C53: redefinition of 'canReceive': number of parameters different
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(37): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(28): warning C47: 'm': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(50): warning C47: 'baud': unreferenced parameter
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(28): error C53: redefinition of 'canReceive': number of parameters different
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'm': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+linking...
+L166 LINKER/LOCATER V5.25 - SN: K6RMC-PEYMDC
+COPYRIGHT KEIL ELEKTRONIK GmbH 1991 - 2007
+"Start_V2.obj",
+"MAIN.obj",
+"CAN.obj",
+"emcy.obj",
+"lifegrd.obj",
+"lss.obj",
+"nmtMaster.obj",
+"nmtSlave.obj",
+"objacces.obj",
+"pdo.obj",
+"sdo.obj",
+"states.obj",
+"sync.obj",
+"temp.obj",
+"timer.obj",
+"can_xc164.obj" 
+TO "canopen" 
+CLASSES (ICODE (0xC00000-0xC1FFFF), NCODE (0xC00000-0xC0FFFF), 
+FCONST (0xC00000-0xC1FFFF), HCONST (0xC00000-0xC1FFFF), 
+XCONST (0xC00000-0xC1FFFF), NCONST (0xC04000-0xC07FFF), 
+NDATA (0xC000-0xCFFF, 0xF600-0xFDFF), NDATA0 (0xC000-0xCFFF, 0xF600-0xFDFF), 
+SDATA (0xC000-0xCFFF, 0xF600-0xFDFF), SDATA0 (0xC000-0xCFFF, 0xF600-0xFDFF), 
+IDATA (0xF600-0xFDFF), IDATA0 (0xF600-0xFDFF), 
+FDATA (0xC000-0xCFFF, 0xF600-0xFDFF), FDATA0 (0xC000-0xCFFF, 0xF600-0xFDFF), 
+HDATA (0xC000-0xCFFF, 0xF600-0xFDFF), HDATA0 (0xC000-0xCFFF, 0xF600-0xFDFF), 
+XDATA (0xC000-0xCFFF, 0xF600-0xFDFF), XDATA0 (0xC000-0xCFFF, 0xF600-0xFDFF)) 
+ CINITTAB (0xC00000-0xC1FFFF)
+*** FATAL ERROR L211: I/O ERROR ON OUTPUT FILE:
+    EXCEPTION 0029H: ACCESS TO FILE DENIED
+    FILE: canopen
+Target not created
+Clean started: Project: 'canopen'
+   deleting intermediate output files for target 'Target 1'
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling temp.c...
+CANopen\src\temp.c(12): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(12): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(13): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\temp.c(14): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(15): warning C47: 'id': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(19): warning C47: 'm': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'd': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'Node_ID': unreferenced parameter
+CANopen\src\temp.c(25): warning C47: 'cs': unreferenced parameter
+CANopen\src\temp.c(25): warning C135: 'masterSendNMTstateChange': no return value
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  masterSendNMTstateChange
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _post_SlaveStateChange
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  proceedNMTstateChange
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _nodeguardError
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _heartbeatError
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _post_SlaveBootup
+    MODULE:  .\obj\temp.obj (TEMP)
+   DEFINED:  .\obj\temp.obj (TEMP)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  proceedNMTstateChange
+    MODULE:  .\obj\states.obj (STATES)
+    ADDRESS: 1A2EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  masterSendNMTstateChange
+    MODULE:  .\obj\states.obj (STATES)
+    ADDRESS: 1DB4H
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 220CH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 22A8H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 237CH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 2468H
+Program Size: data=1240(near=1240) const=252(near=76) code=29568
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 220CH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 22A8H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  getElapsedTime
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 237CH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  setTimer
+    MODULE:  .\obj\timer.obj (TIMER)
+    ADDRESS: 2468H
+Program Size: data=1240(near=1240) const=252(near=76) code=29556
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=1244(near=1244) const=264(near=76) code=29566
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 99 Warning(s).
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+MAIN.C(34): error C318: can't open file 'master.h'
+MAIN.C(311): error C67: 'master_Data': undefined identifier
+MAIN.C(311): warning C140: 'setNodeId' undefined; assuming 'extern int setNodeId()'
+MAIN.C(312): error C67: 'master_Data': undefined identifier
+MAIN.C(312): error C67: 'Initialisation': undefined identifier
+MAIN.C(312): warning C140: 'setState' undefined; assuming 'extern int setState()'
+MAIN.C(316): warning C96: 'canReceive': too few actual parameters
+MAIN.C(316): warning C10: conversion: 'pointer' to 'unsigned int'
+MAIN.C(317): error C67: 'master_Data': undefined identifier
+MAIN.C(317): warning C140: 'canDispatch' undefined; assuming 'extern int canDispatch()'
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+CANopen\master.c(174): error C25: syntax error near '}'
+CANopen\master.c(214): warning C72: sizeof returns zero
+CANopen\master.c(215): warning C72: sizeof returns zero
+CANopen\master.c(263): warning C72: sizeof returns zero
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+CANopen\master.c(265): warning C163: function-pointer converted to data-pointer
+Target not created
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+MAIN.C(316): warning C96: 'canReceive': too few actual parameters
+MAIN.C(316): warning C10: conversion: 'pointer' to 'unsigned int'
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=2266(near=2266) const=1537(near=145) code=29806
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 101 Warning(s).
+"" 
+--- Error: failed to execute '"" '
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+MAIN.C(316): warning C96: 'canReceive': too few actual parameters
+MAIN.C(316): warning C10: conversion: 'pointer' to 'unsigned int'
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=2266(near=2266) const=1537(near=145) code=29806
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 101 Warning(s).
+Load "C:\\Users\\voyager\\Desktop\\调试工程\\CanOpen\\obj\\canopen" 
+Erasing...
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=2266(near=2266) const=1537(near=145) code=29806
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 99 Warning(s).
+Load "C:\\Users\\voyager\\Desktop\\调试工程\\CanOpen\\obj\\canopen" 
+Erasing...
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=2266(near=2266) const=1537(near=145) code=29806
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 99 Warning(s).
+Load "C:\\Users\\voyager\\Desktop\\调试工程\\CanOpen\\obj\\canopen" 
+Erasing...
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Rebuild target 'Target 1'
+assembling Start_V2.A66...
+compiling MAIN.C...
+compiling CAN.C...
+compiling emcy.c...
+CANopen\src\emcy.c(57): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\emcy.c(57): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\emcy.c(87): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(108): warning C192: '=': value truncated
+CANopen\src\emcy.c(109): warning C192: '=': value truncated
+CANopen\src\emcy.c(128): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\emcy.c(254): warning C192: '=': value truncated
+CANopen\src\emcy.c(260): warning C47: 'd': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'nodeID': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errCode': unreferenced parameter
+CANopen\src\emcy.c(260): warning C47: 'errReg': unreferenced parameter
+compiling lifegrd.c...
+CANopen\src\lifegrd.c(105): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(115): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\lifegrd.c(187): warning C192: '=': value truncated
+CANopen\src\lifegrd.c(173): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(210): warning C47: 'id': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(263): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_indextable': unreferenced parameter
+CANopen\src\lifegrd.c(281): warning C47: 'unused_bSubindex': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(369): warning C47: 'heartbeatID': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(370): warning C47: 'SlaveID': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'nodeId': unreferenced parameter
+CANopen\src\lifegrd.c(371): warning C47: 'newNodeState': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'd': unreferenced parameter
+CANopen\src\lifegrd.c(372): warning C47: 'id': unreferenced parameter
+compiling lss.c...
+compiling nmtMaster.c...
+CANopen\src\nmtMaster.c(59): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling nmtSlave.c...
+CANopen\src\nmtSlave.c(137): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+compiling objacces.c...
+CANopen\src\objacces.c(45): warning C47: 'index': unreferenced parameter
+CANopen\src\objacces.c(45): warning C47: 'subIndex': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataDict': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'sizeDataGiven': unreferenced parameter
+CANopen\src\objacces.c(46): warning C47: 'code': unreferenced parameter
+CANopen\src\objacces.c(146): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(89): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(235): warning C192: 'parameter 3': value truncated
+CANopen\src\objacces.c(178): warning C47: 'endianize': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'd': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'wIndex': unreferenced parameter
+CANopen\src\objacces.c(284): warning C47: 'bSubindex': unreferenced parameter
+compiling pdo.c...
+CANopen\src\pdo.c(152): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\pdo.c(438): warning C192: '=': value truncated
+CANopen\src\pdo.c(451): warning C192: '=': value truncated
+CANopen\src\pdo.c(605): warning C47: 'd': unreferenced parameter
+CANopen\src\pdo.c(605): warning C47: 'pdoNum': unreferenced parameter
+compiling sdo.c...
+CANopen\src\sdo.c(701): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sdo.c(723): warning C192: '=': value truncated
+CANopen\src\sdo.c(724): warning C192: '=': value truncated
+CANopen\src\sdo.c(892): warning C192: '=': value truncated
+CANopen\src\sdo.c(898): warning C192: '=': value truncated
+CANopen\src\sdo.c(943): warning C192: '=': value truncated
+CANopen\src\sdo.c(956): warning C192: '=': value truncated
+CANopen\src\sdo.c(1029): warning C192: '=': value truncated
+CANopen\src\sdo.c(1030): warning C192: '=': value truncated
+CANopen\src\sdo.c(1070): warning C192: '=': value truncated
+CANopen\src\sdo.c(1081): warning C192: '=': value truncated
+CANopen\src\sdo.c(1137): warning C192: '=': value truncated
+CANopen\src\sdo.c(1138): warning C192: '=': value truncated
+CANopen\src\sdo.c(1150): warning C192: '=': value truncated
+CANopen\src\sdo.c(1151): warning C192: '=': value truncated
+CANopen\src\sdo.c(1256): warning C192: '=': value truncated
+CANopen\src\sdo.c(1399): warning C192: '=': value truncated
+CANopen\src\sdo.c(1400): warning C192: '=': value truncated
+CANopen\src\sdo.c(1444): warning C192: '=': value truncated
+CANopen\src\sdo.c(1518): warning C192: '=': value truncated
+CANopen\src\sdo.c(1967): warning C192: '=': value truncated
+CANopen\src\sdo.c(1968): warning C192: '=': value truncated
+CANopen\src\sdo.c(1869): warning C47: 'endianize': unreferenced parameter
+CANopen\src\sdo.c(2125): warning C192: '=': value truncated
+CANopen\src\sdo.c(2126): warning C192: '=': value truncated
+CANopen\src\sdo.c(2137): warning C192: '=': value truncated
+CANopen\src\sdo.c(2138): warning C192: '=': value truncated
+CANopen\src\sdo.c(423): warning C138: expression with possibly no effect
+compiling states.c...
+CANopen\src\states.c(312): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(319): warning C47: 'd': unreferenced parameter
+CANopen\src\states.c(320): warning C47: 'd': unreferenced parameter
+compiling sync.c...
+CANopen\src\sync.c(62): warning C47: 'id': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_indextable': unreferenced parameter
+CANopen\src\sync.c(76): warning C47: 'unsused_bSubindex': unreferenced parameter
+CANopen\src\sync.c(138): warning C140: 'canSend' undefined; assuming 'extern int canSend()'
+CANopen\src\sync.c(189): warning C47: 'd': unreferenced parameter
+CANopen\src\sync.c(190): warning C47: 'd': unreferenced parameter
+compiling timer.c...
+compiling can_xc164.c...
+CANopen\drivers\XC164\can_xc164.c(8): warning C47: 'notused': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(35): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(36): warning C192: '=': value truncated
+CANopen\drivers\XC164\can_xc164.c(27): warning C47: 'port': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'fd': unreferenced parameter
+CANopen\drivers\XC164\can_xc164.c(49): warning C47: 'baud': unreferenced parameter
+compiling timer_xc164.c...
+CANopen\drivers\XC164\timer_xc164.c(15): warning C47: 'value': unreferenced parameter
+compiling master.c...
+linking...
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\emcy.obj (EMCY)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\lifegrd.obj (LIFEGRD)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtMaster.obj (NMTMASTER)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\nmtSlave.obj (NMTSLAVE)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\pdo.obj (PDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sdo.obj (SDO)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+*** WARNING L20: DATA TYPES DIFFERENT
+    SYMBOL:  canSend
+    MODULE:  .\obj\sync.obj (SYNC)
+   DEFINED:  .\obj\can_xc164.obj (CAN_XC164)
+Program Size: data=2266(near=2266) const=1537(near=145) code=29806
+creating hex file from ".\obj\canopen"...
+".\obj\canopen" - 0 Error(s), 99 Warning(s).

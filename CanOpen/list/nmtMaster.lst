@@ -1,0 +1,148 @@
+C166 COMPILER V7.53.0.0, NMTMASTER                                                         09/09/2014 14:34:52 PAGE 1   
+
+
+C166 COMPILER V7.53.0.0, COMPILATION OF MODULE NMTMASTER
+OBJECT MODULE PLACED IN .\obj\nmtMaster.obj
+COMPILER INVOKED BY: d:\Keil\C166\BIN\C166.EXE CANopen\src\nmtMaster.c MODV2 BROWSE INCDIR(.\CANopen\include;.\CANopen\i
+                    -nclude\XC164_CANopen;.\CANopen) MODV2 DEBUG PRINT(.\list\nmtMaster.lst) TABS(2) OBJECT(.\obj\nmtMaster.obj) 
+
+ stmt lvl     source
+
+    1         /*
+    2           This file is part of CanFestival, a library implementing CanOpen
+    3           Stack.
+    4         
+    5           Copyright (C): Edouard TISSERANT and Francis DUPIN
+    6         
+    7           See COPYING file for copyrights details.
+    8         
+    9           This library is free software; you can redistribute it and/or
+   10           modify it under the terms of the GNU Lesser General Public
+   11           License as published by the Free Software Foundation; either
+   12           version 2.1 of the License, or (at your option) any later version.
+   13         
+   14           This library is distributed in the hope that it will be useful,
+   15           but WITHOUT ANY WARRANTY; without even the implied warranty of
+   16           MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   17           Lesser General Public License for more details.
+   18         
+   19           You should have received a copy of the GNU Lesser General Public
+   20           License along with this library; if not, write to the Free Software
+   21           Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+   22           USA
+   23         */
+   24         /*!
+   25         ** @file   nmtMaster.c
+   26         ** @author Edouard TISSERANT and Francis DUPIN
+   27         ** @date   Tue Jun  5 08:47:18 2007
+   28         **
+   29         ** @brief
+   30         **
+   31         **
+   32         */
+   33         #include "nmtMaster.h"
+   34         #include "canfestival.h"
+   35         #include "sysdep.h"
+   36         
+   37         /*!
+   38         **
+   39         **
+   40         ** @param d
+   41         ** @param Node_ID
+   42         ** @param cs
+   43         **
+   44         ** @return
+   45         **/
+   46         UNS8 masterSendNMTstateChange(CO_Data* d, UNS8 Node_ID, UNS8 cs)
+   47         {
+   48  1        Message m;
+   49  1      
+   50  1        MSG_WAR(0x3501, "Send_NMT cs : ", cs);
+   51  1        MSG_WAR(0x3502, "    to node : ", Node_ID);
+   52  1        /* message configuration */
+   53  1        m.cob_id = 0x0000; /*(NMT) << 7*/
+   54  1        m.rtr = NOT_A_REQUEST;
+C166 COMPILER V7.53.0.0, NMTMASTER                                                         09/09/2014 14:34:52 PAGE 2   
+
+   55  1        m.len = 2;
+   56  1        m.data[0] = cs;
+   57  1        m.data[1] = Node_ID;
+   58  1      
+   59  1        return canSend(d->canHandle,&m);
+*** WARNING C140 IN LINE 59 OF CANopen\src\nmtMaster.c: 'canSend' undefined; assuming 'extern int canSend()'
+   60  1      }
+   61         
+   62         
+   63         /*!
+   64         **
+   65         **
+   66         ** @param d
+   67         ** @param nodeId
+   68         **
+   69         ** @return
+   70         **/
+   71         UNS8 masterSendNMTnodeguard(CO_Data* d, UNS8 nodeId)
+   72         {
+   73  1        Message m;
+   74  1      
+   75  1        /* message configuration */
+   76  1        UNS16 tmp = nodeId | (NODE_GUARD << 7); 
+   77  1        m.cob_id = UNS16_LE(tmp);
+   78  1        m.rtr = REQUEST;
+   79  1        m.len = 0;
+   80  1      
+   81  1        MSG_WAR(0x3503, "Send_NODE_GUARD to node : ", nodeId);
+   82  1      
+   83  1        return canSend(d->canHandle,&m);
+   84  1      }
+   85         
+   86         /*!
+   87         **
+   88         **
+   89         ** @param d
+   90         ** @param nodeId
+   91         **
+   92         ** @return
+   93         **/
+   94         UNS8 masterRequestNodeState(CO_Data* d, UNS8 nodeId)
+   95         {
+   96  1        /* FIXME: should warn for bad toggle bit. */
+   97  1      
+   98  1        /* NMTable configuration to indicate that the master is waiting
+   99  1          for a Node_Guard frame from the slave whose node_id is ID
+  100  1        */
+  101  1        d->NMTable[nodeId] = Unknown_state; /* A state that does not exist
+  102  1                                             */
+  103  1      
+  104  1        if (nodeId == 0) { /* NMT broadcast */
+  105  2          UNS8 i = 0;
+  106  2          for (i = 0 ; i < NMT_MAX_NODE_ID ; i++) {
+  107  3            d->NMTable[i] = Unknown_state;
+  108  3          }
+  109  2        }
+  110  1        return masterSendNMTnodeguard(d,nodeId);
+  111  1      }
+  112         
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+C166 COMPILER V7.53.0.0, NMTMASTER                                                         09/09/2014 14:34:52 PAGE 3   
+
+  CODE SIZE        =         144     --------
+  NEAR-CONST SIZE  =    --------     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =    --------     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

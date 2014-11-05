@@ -1,0 +1,765 @@
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 1   
+
+
+C166 COMPILER V7.53.0.0, COMPILATION OF MODULE CAN
+OBJECT MODULE PLACED IN .\obj\CAN.obj
+COMPILER INVOKED BY: d:\Keil\C166\BIN\C166.EXE CAN.C MODV2 BROWSE INCDIR(.\CANopen\include;.\CANopen\include\XC164_CANop
+                    -en;.\CANopen) MODV2 DEBUG PRINT(.\list\CAN.lst) TABS(2) OBJECT(.\obj\CAN.obj) 
+
+ stmt lvl     source
+
+    1         //****************************************************************************
+    2         // @Module        TwinCAN Module (CAN)
+    3         // @Filename      CAN.C
+    4         // @Project       canopen.dav
+    5         //----------------------------------------------------------------------------
+    6         // @Controller    Infineon XC164CS-16F40
+    7         //
+    8         // @Compiler      Keil
+    9         //
+   10         // @Codegenerator 3.0
+   11         //
+   12         // @Description   This file contains functions that use the CAN module.
+   13         //
+   14         //----------------------------------------------------------------------------
+   15         // @Date          2014/9/5 14:48:07
+   16         //
+   17         //****************************************************************************
+   18         
+   19         // USER CODE BEGIN (CAN_General,1)
+   20         
+   21         // USER CODE END
+   22         
+   23         
+   24         
+   25         //****************************************************************************
+   26         // @Project Includes
+   27         //****************************************************************************
+   28         
+   29         #include "MAIN.H"
+   30         
+   31         // USER CODE BEGIN (CAN_General,2)
+   32         
+   33         // USER CODE END
+   34         
+   35         
+   36         //****************************************************************************
+   37         // @Macros
+   38         //****************************************************************************
+   39         
+   40         // USER CODE BEGIN (CAN_General,3)
+   41         
+   42         // USER CODE END
+   43         
+   44         
+   45         //****************************************************************************
+   46         // @Defines
+   47         //****************************************************************************
+   48         
+   49         // Structure for a single TwinCAN object
+   50         // A total of 31 such object structures exists
+   51         
+   52         struct stCanObj 
+   53         {
+   54           ubyte  ubData[8];  // Message Data 0..7
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 2   
+
+   55           ulong  ulCANAR;    // Arbitration Register
+   56           ulong  ulCANAMR;   // Acceptance Mask Register
+   57           uword  uwMSGCTR;   // Message Control Register
+   58           uword  uwCounter;  // Frame Counter
+   59           uword  uwMSGCFG;   // Message Configuration Register
+   60           uword  uwINP;      // Interrupt Node Pointer
+   61           uword  uwCANFCR;   // FIFO / Gateway Control Register 
+   62           uword  uwCANPTR;   // FIFO Pointer
+   63           ulong  ulReserved; // Reserved
+   64         };
+   65         
+   66         #define CAN_HWOBJ ((struct stCanObj volatile far *) 0x200300)
+   67         
+   68         // USER CODE BEGIN (CAN_General,4)
+   69         
+   70         // USER CODE END
+   71         
+   72         
+   73         //****************************************************************************
+   74         // @Typedefs
+   75         //****************************************************************************
+   76         
+   77         // USER CODE BEGIN (CAN_General,5)
+   78         
+   79         // USER CODE END
+   80         
+   81         
+   82         //****************************************************************************
+   83         // @Imported Global Variables
+   84         //****************************************************************************
+   85         
+   86         // USER CODE BEGIN (CAN_General,6)
+   87         
+   88         // USER CODE END
+   89         
+   90         
+   91         //****************************************************************************
+   92         // @Global Variables
+   93         //****************************************************************************
+   94         
+   95         
+   96         // USER CODE BEGIN (CAN_General,7)
+   97         
+   98         // USER CODE END
+   99         
+  100         
+  101         //****************************************************************************
+  102         // @External Prototypes
+  103         //****************************************************************************
+  104         
+  105         // USER CODE BEGIN (CAN_General,8)
+  106         
+  107         // USER CODE END
+  108         
+  109         
+  110         //****************************************************************************
+  111         // @Prototypes Of Local Functions
+  112         //****************************************************************************
+  113         
+  114         // USER CODE BEGIN (CAN_General,9)
+  115         
+  116         // USER CODE END
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 3   
+
+  117         
+  118         
+  119         //****************************************************************************
+  120         // @Function      void CAN_vInit(void) 
+  121         //
+  122         //----------------------------------------------------------------------------
+  123         // @Description   This is the initialization function of the CAN function 
+  124         //                library. It is assumed that the SFRs used by this library 
+  125         //                are in its reset state. 
+  126         //
+  127         //----------------------------------------------------------------------------
+  128         // @Returnvalue   None
+  129         //
+  130         //----------------------------------------------------------------------------
+  131         // @Parameters    None
+  132         //
+  133         //----------------------------------------------------------------------------
+  134         // @Date          2014/9/5
+  135         //
+  136         //****************************************************************************
+  137         
+  138         // USER CODE BEGIN (Init,1)
+  139         
+  140         // USER CODE END
+  141         
+  142         void CAN_vInit(void)
+  143         {
+  144  1      
+  145  1        // USER CODE BEGIN (Init,2)
+  146  1      
+  147  1        // USER CODE END
+  148  1      
+  149  1        ///  -----------------------------------------------------------------------
+  150  1        ///  Configuration of CAN Node A:
+  151  1        ///  -----------------------------------------------------------------------
+  152  1      
+  153  1        ///  General Configuration of the Node A:
+  154  1        ///  - set INIT and CCE
+  155  1      
+  156  1        CAN_ACR        =  0x0041;      // load global control register
+  157  1        CAN_AGINP      =  0x0000;      // load global interrupt node pointer 
+  158  1                                       // register
+  159  1      
+  160  1        ///  Configuration of the Node A Error Counter:
+  161  1        ///  - the error warning threshold value (warning level) is 96
+  162  1      
+  163  1        CAN_AECNTH     =  0x0060;      // load error counter register high
+  164  1      
+  165  1        ///  Configuration of the used CAN Port Pins:
+  166  1        ///  - P4.5 is used for CAN Interface Input (RXDCA)
+  167  1        ///  - P4.6 is used for CAN Interface Output (TXDCA)
+  168  1      
+  169  1        ALTSEL0P4     |=  0x0040;      // select alternate output function
+  170  1        DP4  = (DP4  & ~(uword)0x0040) | 0x0040;    //set direction register
+  171  1      
+  172  1        ///  Configuration of the Node A Baud Rate:
+  173  1        ///  - required baud rate = 50.000 kbaud
+  174  1        ///  - real baud rate     = 50.000 kbaud
+  175  1        ///  - sample point       = 60.00 %
+  176  1        ///  - there are 5 time quanta before sample point
+  177  1        ///  - there are 4 time quanta after sample point
+  178  1        ///  - the (re)synchronization jump width is 2 time quanta
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 4   
+
+  179  1        ///  - enable the module clock divider (by 8)
+  180  1      
+  181  1        CAN_ABTRL      =  0xB449;      // load bit timing register low
+  182  1      
+  183  1        CAN_ABTRH      =  0x0000;      // load bit timing register high
+  184  1      
+  185  1        CAN_AFCRL      =  0x0000;      // load frame counter timing register low
+  186  1      
+  187  1        CAN_AFCRH      =  0x0000;      // load frame counter timing register high
+  188  1      
+  189  1        ///  -----------------------------------------------------------------------
+  190  1        ///  Configuration of CAN Node B:
+  191  1        ///  -----------------------------------------------------------------------
+  192  1      
+  193  1        ///  General Configuration of the Node B:
+  194  1        ///  - set INIT and CCE
+  195  1      
+  196  1        CAN_BCR        =  0x0041;      // load global control register
+  197  1      
+  198  1        ///  -----------------------------------------------------------------------
+  199  1        ///  Configuration of the CAN Message Objects 0 - 31:
+  200  1        ///  -----------------------------------------------------------------------
+  201  1      
+  202  1        ///  -----------------------------------------------------------------------
+  203  1        ///  Configuration of Message Object 0:
+  204  1        ///  -----------------------------------------------------------------------
+  205  1        ///  - message object 0 is valid
+  206  1      
+  207  1        ///  - message object is used as transmit object
+  208  1        ///  - standard 11-bit identifier
+  209  1        ///  - 8 valid data bytes
+  210  1        ///  - this message object works with CAN node A
+  211  1        ///  - remote monitoring is disabled
+  212  1      
+  213  1        CAN_MSGCFGL0   =  0x0088;      // load message configuration register low
+  214  1        CAN_MSGCFGH0   =  0x0000;      // load message configuration register high
+  215  1      
+  216  1        ///  - acceptance mask 11-bit: 0x7FF
+  217  1        ///  - identifier 11-bit:      0x000
+  218  1      
+  219  1        CAN_MSGAMRL0   =  0xFFFF;      // load acceptance mask register low
+  220  1        CAN_MSGAMRH0   =  0xFFFF;      // load acceptance mask register high
+  221  1        CAN_MSGARL0    =  0x0000;      // load arbitration register low
+  222  1        CAN_MSGARH0    =  0x0000;      // load arbitration register high
+  223  1        CAN_MSGDRL00   =  0x0000;      // load data register 0 low
+  224  1        CAN_MSGDRH00   =  0x0000;      // load data register 0 high
+  225  1        CAN_MSGDRL04   =  0x0000;      // load data register 4 low
+  226  1        CAN_MSGDRH04   =  0x0000;      // load data register 4 high
+  227  1      
+  228  1        ///  - functionality of standard message object
+  229  1      
+  230  1        CAN_MSGFGCRL0  =  0x0000;      // load FIFO/gateway control register low
+  231  1        CAN_MSGFGCRH0  =  0x0000;      // load FIFO/gateway control register high
+  232  1      
+  233  1        CAN_MSGCTRH0   =  0x0000;      // load message control register high
+  234  1        CAN_MSGCTRL0   =  0x5595;      // load message control register low
+  235  1      
+  236  1        ///  -----------------------------------------------------------------------
+  237  1        ///  Configuration of Message Object 1:
+  238  1        ///  -----------------------------------------------------------------------
+  239  1        ///  - message object 1 is valid
+  240  1      
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 5   
+
+  241  1        ///  - message object is used as receive object
+  242  1        ///  - standard 11-bit identifier
+  243  1        ///  - 8 valid data bytes
+  244  1        ///  - this message object works with CAN node A
+  245  1        ///  - remote monitoring is disabled
+  246  1      
+  247  1        CAN_MSGCFGL1   =  0x0080;      // load message configuration register low
+  248  1        CAN_MSGCFGH1   =  0x0000;      // load message configuration register high
+  249  1      
+  250  1        ///  - acceptance mask 11-bit: 0x7FF
+  251  1        ///  - identifier 11-bit:      0x000
+  252  1      
+  253  1        CAN_MSGAMRL1   =  0xFFFF;      // load acceptance mask register low
+  254  1        CAN_MSGAMRH1   =  0xFFFF;      // load acceptance mask register high
+  255  1        CAN_MSGARL1    =  0x0000;      // load arbitration register low
+  256  1        CAN_MSGARH1    =  0x0000;      // load arbitration register high
+  257  1        CAN_MSGDRL10   =  0x0000;      // load data register 0 low
+  258  1        CAN_MSGDRH10   =  0x0000;      // load data register 0 high
+  259  1        CAN_MSGDRL14   =  0x0000;      // load data register 4 low
+  260  1        CAN_MSGDRH14   =  0x0000;      // load data register 4 high
+  261  1      
+  262  1        ///  - functionality of standard message object
+  263  1      
+  264  1        CAN_MSGFGCRL1  =  0x0000;      // load FIFO/gateway control register low
+  265  1        CAN_MSGFGCRH1  =  0x0001;      // load FIFO/gateway control register high
+  266  1      
+  267  1        CAN_MSGCTRH1   =  0x0000;      // load message control register high
+  268  1        CAN_MSGCTRL1   =  0x5595;      // load message control register low
+  269  1      
+  270  1      
+  271  1        ///  -----------------------------------------------------------------------
+  272  1        ///  Configuration of Service Request Nodes 0 - 7:
+  273  1        ///  -----------------------------------------------------------------------
+  274  1      
+  275  1      
+  276  1        // USER CODE BEGIN (Init,3)
+  277  1      
+  278  1        // USER CODE END
+  279  1      
+  280  1      
+  281  1        CAN_PISEL      =  0x0000;      // load port input select register
+  282  1      
+  283  1        //   -----------------------------------------------------------------------
+  284  1        //   Start the CAN Nodes:
+  285  1        //   -----------------------------------------------------------------------
+  286  1      
+  287  1        CAN_ACR       &= ~(uword)0x0041; // reset INIT and CCE
+  288  1      
+  289  1      
+  290  1        // USER CODE BEGIN (Init,4)
+  291  1      
+  292  1        // USER CODE END
+  293  1      
+  294  1      } //  End of function CAN_vInit
+  295         
+  296         
+  297         //****************************************************************************
+  298         // @Function      void CAN_vGetMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj) 
+  299         //
+  300         //----------------------------------------------------------------------------
+  301         // @Description   This function fills the forwarded SW message object with 
+  302         //                the content of the chosen HW message object.
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 6   
+
+  303         //                
+  304         //                The structure of the SW message object is defined in the 
+  305         //                header file CAN_164.H (see TCAN_SWObj).
+  306         //
+  307         //----------------------------------------------------------------------------
+  308         // @Returnvalue   None
+  309         //
+  310         //----------------------------------------------------------------------------
+  311         // @Parameters    ubObjNr: 
+  312         //                Number of the message object to be read (0-31)
+  313         // @Parameters    *pstObj: 
+  314         //                Pointer on a message object to be filled by this function
+  315         //
+  316         //----------------------------------------------------------------------------
+  317         // @Date          2014/9/5
+  318         //
+  319         //****************************************************************************
+  320         
+  321         // USER CODE BEGIN (GetMsgObj,1)
+  322         
+  323         // USER CODE END
+  324         
+  325         void CAN_vGetMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj)
+  326         {
+  327  1        ubyte i;
+  328  1      
+  329  1        for(i = 0; i < (CAN_HWOBJ[ubObjNr].uwMSGCFG & 0x00f0) >> 4; i++)
+  330  1        {
+  331  2          pstObj->ubData[i] = CAN_HWOBJ[ubObjNr].ubData[i];
+  332  2        }
+  333  1      
+  334  1        if(CAN_HWOBJ[ubObjNr].uwMSGCFG & 0x04)  // extended identifier
+  335  1        {
+  336  2          pstObj->ulID   = CAN_HWOBJ[ubObjNr].ulCANAR;
+  337  2          pstObj->ulMask = CAN_HWOBJ[ubObjNr].ulCANAMR;
+  338  2        }
+  339  1        else                                    // standard identifier 
+  340  1        {
+  341  2          pstObj->ulID   = CAN_HWOBJ[ubObjNr].ulCANAR >> 18;
+  342  2          pstObj->ulMask = CAN_HWOBJ[ubObjNr].ulCANAMR >> 18;
+  343  2        }
+  344  1      
+  345  1        pstObj->uwCounter = CAN_HWOBJ[ubObjNr].uwCounter;
+  346  1        pstObj->uwMsgCfg  = CAN_HWOBJ[ubObjNr].uwMSGCFG;
+  347  1      
+  348  1      } //  End of function CAN_vGetMsgObj
+  349         
+  350         
+  351         //****************************************************************************
+  352         // @Function      ubyte CAN_ubRequestMsgObj(ubyte ubObjNr) 
+  353         //
+  354         //----------------------------------------------------------------------------
+  355         // @Description   If a TRANSMIT OBJECT is to be reconfigured it must first be 
+  356         //                accessed. The access to the transmit object is exclusive. 
+  357         //                This function checks whether the choosen message object is 
+  358         //                still executing a transmit request, or if the object can be 
+  359         //                accessed exclusively.
+  360         //                After the message object is reserved, it can be 
+  361         //                reconfigured by using the function CAN_vConfigMsgObj or 
+  362         //                CAN_vLoadData.
+  363         //                Both functions enable access to the object for the CAN 
+  364         //                controller. 
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 7   
+
+  365         //                By calling the function CAN_vTransmit transfering of data 
+  366         //                is started.
+  367         //
+  368         //----------------------------------------------------------------------------
+  369         // @Returnvalue   0 message object is busy (a transfer is active), else 1
+  370         //
+  371         //----------------------------------------------------------------------------
+  372         // @Parameters    ubObjNr: 
+  373         //                Number of the message object (0-31)
+  374         //
+  375         //----------------------------------------------------------------------------
+  376         // @Date          2014/9/5
+  377         //
+  378         //****************************************************************************
+  379         
+  380         // USER CODE BEGIN (RequestMsgObj,1)
+  381         
+  382         // USER CODE END
+  383         
+  384         ubyte CAN_ubRequestMsgObj(ubyte ubObjNr)
+  385         {
+  386  1        ubyte ubReturn;
+  387  1      
+  388  1        ubReturn = 0;
+  389  1        if((CAN_HWOBJ[ubObjNr].uwMSGCTR & 0x3000) == 0x1000)  // if reset TXRQ 
+  390  1        {
+  391  2          CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xfbff;               // set CPUUPD 
+  392  2          ubReturn = 1;
+  393  2        }
+  394  1        return(ubReturn);
+  395  1      
+  396  1      } //  End of function CAN_ubRequestMsgObj
+  397         
+  398         
+  399         //****************************************************************************
+  400         // @Function      ubyte CAN_ubNewData(ubyte ubObjNr) 
+  401         //
+  402         //----------------------------------------------------------------------------
+  403         // @Description   This function checks whether the selected RECEIVE OBJECT 
+  404         //                has received a new message. If so the function returns the 
+  405         //                value '1'.
+  406         //
+  407         //----------------------------------------------------------------------------
+  408         // @Returnvalue   1 the message object has received a new message, else 0
+  409         //
+  410         //----------------------------------------------------------------------------
+  411         // @Parameters    ubObjNr: 
+  412         //                Number of the message object (0-31)
+  413         //
+  414         //----------------------------------------------------------------------------
+  415         // @Date          2014/9/5
+  416         //
+  417         //****************************************************************************
+  418         
+  419         // USER CODE BEGIN (NewData,1)
+  420         
+  421         // USER CODE END
+  422         
+  423         ubyte CAN_ubNewData(ubyte ubObjNr)
+  424         {
+  425  1        ubyte ubReturn;
+  426  1      
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 8   
+
+  427  1        ubReturn = 0;
+  428  1        if((CAN_HWOBJ[ubObjNr].uwMSGCTR & 0x0300) == 0x0200)  // if NEWDAT
+  429  1        {
+  430  2          ubReturn = 1;
+  431  2        }
+  432  1        return(ubReturn);
+  433  1      
+  434  1      } //  End of function CAN_ubNewData
+  435         
+  436         
+  437         //****************************************************************************
+  438         // @Function      void CAN_vTransmit(ubyte ubObjNr) 
+  439         //
+  440         //----------------------------------------------------------------------------
+  441         // @Description   This function triggers the CAN controller to send the 
+  442         //                selected message.
+  443         //                If the selected message object is a TRANSMIT OBJECT then 
+  444         //                this function triggers the sending of a data frame. If 
+  445         //                however the selected message object is a RECEIVE OBJECT 
+  446         //                this function triggers the sending of a remote frame.
+  447         //
+  448         //----------------------------------------------------------------------------
+  449         // @Returnvalue   None
+  450         //
+  451         //----------------------------------------------------------------------------
+  452         // @Parameters    ubObjNr: 
+  453         //                Number of the message object (0-31)
+  454         //
+  455         //----------------------------------------------------------------------------
+  456         // @Date          2014/9/5
+  457         //
+  458         //****************************************************************************
+  459         
+  460         // USER CODE BEGIN (Transmit,1)
+  461         
+  462         // USER CODE END
+  463         
+  464         void CAN_vTransmit(ubyte ubObjNr)
+  465         {
+  466  1        CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xe7ff;  // set TXRQ, reset CPUUPD
+  467  1      
+  468  1      } //  End of function CAN_vTransmit
+  469         
+  470         
+  471         //****************************************************************************
+  472         // @Function      void CAN_vConfigMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj) 
+  473         //
+  474         //----------------------------------------------------------------------------
+  475         // @Description   This function sets up the message objects. This includes 
+  476         //                the 8 data bytes, the identifier (11- or 29-bit), the 
+  477         //                acceptance mask (11- or 29-bit), the data number (0-8 
+  478         //                bytes), the frame counter value and the XTD-bit (standard 
+  479         //                or extended identifier).  The direction bit (DIR), the NODE 
+  480         //                bit and the RMM (remote monitoring) bit can not be changed. 
+  481         //                The message is not sent; for this the function 
+  482         //                CAN_vTransmit must be called.
+  483         //                
+  484         //                The structure of the SW message object is defined in the 
+  485         //                header file CAN_164.H (see TCAN_SWObj).
+  486         //
+  487         //----------------------------------------------------------------------------
+  488         // @Returnvalue   None
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 9   
+
+  489         //
+  490         //----------------------------------------------------------------------------
+  491         // @Parameters    ubObjNr: 
+  492         //                Number of the message object to be configured (0-31)
+  493         // @Parameters    *pstObj: 
+  494         //                Pointer on a message object
+  495         //
+  496         //----------------------------------------------------------------------------
+  497         // @Date          2014/9/5
+  498         //
+  499         //****************************************************************************
+  500         
+  501         // USER CODE BEGIN (ConfigMsgObj,1)
+  502         
+  503         // USER CODE END
+  504         
+  505         void CAN_vConfigMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj)
+  506         {
+  507  1        ubyte i;
+  508  1      
+  509  1        CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xfb7f;     // set CPUUPD, reset MSGVAL
+  510  1      
+  511  1        if(pstObj->uwMsgCfg & 0x0004)             // extended identifier
+  512  1        {
+  513  2          CAN_HWOBJ[ubObjNr].uwMSGCFG |= 0x0004;
+  514  2          CAN_HWOBJ[ubObjNr].ulCANAR   = pstObj->ulID ;
+  515  2          CAN_HWOBJ[ubObjNr].ulCANAMR  = pstObj->ulMask ;
+  516  2        }
+  517  1        else                                      // standard identifier
+  518  1        {
+  519  2          CAN_HWOBJ[ubObjNr].uwMSGCFG &= ~(uword)0x0004;
+  520  2          CAN_HWOBJ[ubObjNr].ulCANAR   = pstObj->ulID << 18;
+  521  2          CAN_HWOBJ[ubObjNr].ulCANAMR  = pstObj->ulMask << 18;
+  522  2        }
+  523  1      
+  524  1        CAN_HWOBJ[ubObjNr].uwCounter = pstObj->uwCounter;
+  525  1      
+  526  1        CAN_HWOBJ[ubObjNr].uwMSGCFG  = (CAN_HWOBJ[ubObjNr].uwMSGCFG & 0x000f) | (pstObj->uwMsgCfg & 0x00f0);
+  527  1      
+  528  1        if(CAN_HWOBJ[ubObjNr].uwMSGCFG & 0x0008)  // if transmit direction
+  529  1        {
+  530  2          for(i = 0; i < (pstObj->uwMsgCfg & 0x00f0) >> 4; i++)
+  531  2          {
+  532  3            CAN_HWOBJ[ubObjNr].ubData[i] = pstObj->ubData[i];
+  533  3          }
+  534  2          CAN_HWOBJ[ubObjNr].uwMSGCTR  = 0xf6bf;  // set NEWDAT, reset CPUUPD, 
+  535  2        }                                         // set MSGVAL
+  536  1        else                                      // if receive direction
+  537  1        {
+  538  2          CAN_HWOBJ[ubObjNr].uwMSGCTR  = 0xf7bf;  // reset CPUUPD, set MSGVAL
+  539  2        }
+  540  1      
+  541  1      } //  End of function CAN_vConfigMsgObj
+  542         
+  543         
+  544         //****************************************************************************
+  545         // @Function      void CAN_vLoadData(ubyte ubObjNr, ubyte *pubData) 
+  546         //
+  547         //----------------------------------------------------------------------------
+  548         // @Description   If a hardware TRANSMIT OBJECT has to be loaded with data 
+  549         //                but not with a new identifier, this function may be used 
+  550         //                instead of the function CAN_vConfigMsgObj. The message 
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 10  
+
+  551         //                object should be accessed by calling the function 
+  552         //                CAN_ubRequestMsgObj before calling this function. This 
+  553         //                prevents the CAN controller from working with invalid data.
+  554         //
+  555         //----------------------------------------------------------------------------
+  556         // @Returnvalue   None
+  557         //
+  558         //----------------------------------------------------------------------------
+  559         // @Parameters    ubObjNr: 
+  560         //                Number of the message object to be configured (0-31)
+  561         // @Parameters    *pubData: 
+  562         //                Pointer on a data buffer
+  563         //
+  564         //----------------------------------------------------------------------------
+  565         // @Date          2014/9/5
+  566         //
+  567         //****************************************************************************
+  568         
+  569         // USER CODE BEGIN (LoadData,1)
+  570         
+  571         // USER CODE END
+  572         
+  573         void CAN_vLoadData(ubyte ubObjNr, ubyte *pubData)
+  574         {
+  575  1        ubyte i;
+  576  1      
+  577  1        CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xfaff;       // set CPUUPD and NEWDAT
+  578  1      
+  579  1        for(i = 0; i < (CAN_HWOBJ[ubObjNr].uwMSGCFG & 0xf0) >> 4; i++)
+  580  1        {
+  581  2          CAN_HWOBJ[ubObjNr].ubData[i] = *(pubData++);
+  582  2        }
+  583  1      
+  584  1        CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xf7ff;       // reset CPUUPD
+  585  1      
+  586  1      } //  End of function CAN_vLoadData
+  587         
+  588         
+  589         //****************************************************************************
+  590         // @Function      ubyte CAN_ubMsgLost(ubyte ubObjNr) 
+  591         //
+  592         //----------------------------------------------------------------------------
+  593         // @Description   If a RECEIVE OBJECT receives new data before the old object 
+  594         //                has been read, the old object is lost. The CAN controller 
+  595         //                indicates this by setting the message lost bit (MSGLST). 
+  596         //                This function returns the status of this bit. 
+  597         //                
+  598         //                Note:
+  599         //                This function resets the message lost bit (MSGLST).
+  600         //
+  601         //----------------------------------------------------------------------------
+  602         // @Returnvalue   1 the message object has lost a message, else 0
+  603         //
+  604         //----------------------------------------------------------------------------
+  605         // @Parameters    ubObjNr: 
+  606         //                Number of the message object (0-31)
+  607         //
+  608         //----------------------------------------------------------------------------
+  609         // @Date          2014/9/5
+  610         //
+  611         //****************************************************************************
+  612         
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 11  
+
+  613         // USER CODE BEGIN (MsgLost,1)
+  614         
+  615         // USER CODE END
+  616         
+  617         ubyte CAN_ubMsgLost(ubyte ubObjNr)
+  618         {
+  619  1        ubyte ubReturn;
+  620  1      
+  621  1        ubReturn = 0;
+  622  1        if((CAN_HWOBJ[ubObjNr].uwMSGCTR & 0x0c00) == 0x0800)  // if set MSGLST 
+  623  1        {
+  624  2          CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xf7ff;               // reset MSGLST 
+  625  2          ubReturn = 1;
+  626  2        }
+  627  1        return(ubReturn);
+  628  1      
+  629  1      } //  End of function CAN_ubMsgLost
+  630         
+  631         
+  632         //****************************************************************************
+  633         // @Function      ubyte CAN_ubDelMsgObj(ubyte ubObjNr) 
+  634         //
+  635         //----------------------------------------------------------------------------
+  636         // @Description   This function marks the selected message object as not 
+  637         //                valid. This means that this object cannot be sent or 
+  638         //                receive data. If the selected object is busy (meaning the 
+  639         //                object is transmitting a message or has received a new 
+  640         //                message) this function returns the value "0" and the object 
+  641         //                is not deleted.
+  642         //
+  643         //----------------------------------------------------------------------------
+  644         // @Returnvalue   1 the message object was deleted, else 0
+  645         //
+  646         //----------------------------------------------------------------------------
+  647         // @Parameters    ubObjNr: 
+  648         //                Number of the message object (0-31)
+  649         //
+  650         //----------------------------------------------------------------------------
+  651         // @Date          2014/9/5
+  652         //
+  653         //****************************************************************************
+  654         
+  655         // USER CODE BEGIN (DelMsgObj,1)
+  656         
+  657         // USER CODE END
+  658         
+  659         ubyte CAN_ubDelMsgObj(ubyte ubObjNr)
+  660         {
+  661  1        ubyte ubReturn;
+  662  1      
+  663  1        ubReturn = 0;
+  664  1        if(!(CAN_HWOBJ[ubObjNr].uwMSGCTR & 0xa200)) // if set RMTPND, TXRQ or NEWDAT
+  665  1        {
+  666  2          CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xff7f;     // reset MSGVAL
+  667  2          ubReturn = 1;
+  668  2        }
+  669  1        return(ubReturn);
+  670  1      
+  671  1      } //  End of function CAN_ubDelMsgObj
+  672         
+  673         
+  674         //****************************************************************************
+C166 COMPILER V7.53.0.0, CAN                                                               09/09/2014 14:34:51 PAGE 12  
+
+  675         // @Function      void CAN_vReleaseObj(ubyte ubObjNr) 
+  676         //
+  677         //----------------------------------------------------------------------------
+  678         // @Description   This function resets the NEWDAT flag of the selected 
+  679         //                RECEIVE OBJECT, so that the CAN controller have access to 
+  680         //                it. This function must be called if the function 
+  681         //                CAN_ubNewData detects, that new data are present in the 
+  682         //                message object and the actual data have been read by 
+  683         //                calling the function CAN_vGetMsgObj. 
+  684         //
+  685         //----------------------------------------------------------------------------
+  686         // @Returnvalue   None
+  687         //
+  688         //----------------------------------------------------------------------------
+  689         // @Parameters    ubObjNr: 
+  690         //                Number of the message object (0-31)
+  691         //
+  692         //----------------------------------------------------------------------------
+  693         // @Date          2014/9/5
+  694         //
+  695         //****************************************************************************
+  696         
+  697         // USER CODE BEGIN (ReleaseObj,1)
+  698         
+  699         // USER CODE END
+  700         
+  701         void CAN_vReleaseObj(ubyte ubObjNr)
+  702         {
+  703  1        CAN_HWOBJ[ubObjNr].uwMSGCTR = 0xfdff;       // reset NEWDAT
+  704  1      
+  705  1      } //  End of function CAN_vReleaseObj
+  706         
+  707         
+  708         
+  709         // USER CODE BEGIN (CAN_General,10)
+  710         
+  711         // USER CODE END
+  712         
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+  CODE SIZE        =        1138     --------
+  NEAR-CONST SIZE  =    --------     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =    --------     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

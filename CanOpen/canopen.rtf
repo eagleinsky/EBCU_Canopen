@@ -1,0 +1,469 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\fnil\fcharset2 Symbol;}{\f2\fswiss\fprq2 System;}{\f3\fnil Times New Roman;}{\f4\fswiss\fprq2 Arial;}}
+{\colortbl\red0\green0\blue0;\red0\green0\blue128;\red255\green0\blue0;}
+\deflang1031\pard\plain\f4\fs28\cf0 DAvE's Project Documentation
+\par \plain\f4\fs22\cf0
+\par \plain\f4\fs22\cf0 Project: \tab\tab\b canopen.dav
+\par 
+\par \plain\f4\fs22\cf0 Controller: \tab\tab\b XC164CS-16F40
+\par \plain\f4\fs22\cf0 Compiler: \tab\tab\b Keil
+\par \plain\f4\fs22\cf0 Memory Model: \tab\b SMALL
+\par 
+\par \plain\f4\fs22\cf0 Date: \tab\tab\tab\b 2014/9/5 14:48:07
+\par 
+\par 
+\par \plain\f4\fs22\cf2\b Please read this document carefully and note
+\par \plain\f4\fs22\cf2\b the red-colored hints.
+\par 
+\par \plain\f4\fs22\cf2\b If you miss a file in the generated files list
+\par \plain\f4\fs22\cf2\b maybe you have forgotten to select the
+\par \plain\f4\fs22\cf2\b initialisation function of the related module.
+\par 
+\par \plain\f4\fs22\cf0 Generated Files:
+\plain\f4\fs20\cf0\b
+\par \tab\tab\tab MAIN.H
+\par \tab\tab\tab MAIN.C
+\par \tab\tab\tab CAN_164.H
+\par \tab\tab\tab CAN.C
+\par \tab\tab\tab CANOPEN.ASM
+\par 
+\par 
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Project Settings
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the microcontroller.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vUnlockProtecReg(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function makes it possible to write one protected
+
+\par \tab \tab register. After calling of this function and write on the
+
+\par \tab \tab protected register is the security level set to low
+
+\par \tab \tab protected mode.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void main(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the main function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of the System Clock:\par 
+\tab - VCO clock used, input clock is connected\par 
+\tab - input frequency is 8 MHz\par 
+\tab - VCO output frequency 150 .. 200 MHz\par 
+\tab - system clock is 40 MHz\par 
+\par 
+\tab \cf2Begin of Important Settings for the Start-Up File\cf0\par 
+\tab All following settings must be set in the start-up file. You can use\par 
+\tab DAvE's project file (*.dpt) to include this register values into your\par 
+\tab compiler EDE.\par 
+\par 
+\tab Initialization of the CPUCON1 Register:\par 
+\tab - space between two vectors is 2 words\par 
+\tab - DISWDT executable until End of Init\par 
+\tab - segmentation is enabled\par 
+\tab - switch context is interruptible\par 
+\tab - branch prediction is enabled\par 
+\tab - zero cycle jump function is enabled\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2CPUCON1  =  0x0007\cf0\par 
+\par 
+\tab Initialization of the VECSEG Register:\par 
+\tab - start from external memory\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2VECSEG  =  0x0000\cf0\par 
+\par 
+\tab Initialization of the SYSCON0 Register:\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2SYSCON0  =  0x0000\cf0\par 
+\par 
+\tab Initialization of the SYSCON1 Register:\par 
+\tab clock prescaler for system is fpll / 1\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2SYSCON1  =  0x0000\cf0\par 
+\par 
+\tab Initialization of the SYSCON3 Register:\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2SYSCON3  =  0x0000\cf0\par 
+\par 
+\tab Initialization of EBC\par 
+\par 
+\tab \cf2this register must be set in the start-up file\cf0\par 
+\tab \cf2EBCMOD1  =  0x007F\cf0\par 
+\par 
+\tab EBC is disabled\par 
+\tab \cf2End of Important Settings for the Start-Up File\cf0\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul TwinCAN Module (CAN)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the CAN function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in its reset state.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vGetMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function fills the forwarded SW message object with
+
+\par \tab \tab the content of the chosen HW message object.
+
+\par \tab \tab The structure of the SW message object is defined in the
+
+\par \tab \tab header file CAN_164.H (see TCAN_SWObj).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object to be read (0-31)
+
+\par \tab \tab *pstObj:
+
+\par \tab \tab Pointer on a message object to be filled by this function
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab ubyte CAN_ubRequestMsgObj(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a TRANSMIT OBJECT is to be reconfigured it must first be
+
+\par \tab \tab accessed. The access to the transmit object is exclusive.
+
+\par \tab \tab This function checks whether the choosen message object is
+
+\par \tab \tab still executing a transmit request, or if the object can be
+
+\par \tab \tab accessed exclusively.
+
+\par \tab \tab After the message object is reserved, it can be
+
+\par \tab \tab reconfigured by using the function CAN_vConfigMsgObj or
+
+\par \tab \tab CAN_vLoadData.
+
+\par \tab \tab Both functions enable access to the object for the CAN
+
+\par \tab \tab controller.
+
+\par \tab \tab By calling the function CAN_vTransmit transfering of data
+
+\par \tab \tab is started.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 0 message object is busy (a transfer is active), else 1\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab ubyte CAN_ubNewData(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function checks whether the selected RECEIVE OBJECT
+
+\par \tab \tab has received a new message. If so the function returns the
+
+\par \tab \tab value '1'.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object has received a new message, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vTransmit(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function triggers the CAN controller to send the
+
+\par \tab \tab selected message.
+
+\par \tab \tab If the selected message object is a TRANSMIT OBJECT then
+
+\par \tab \tab this function triggers the sending of a data frame. If
+
+\par \tab \tab however the selected message object is a RECEIVE OBJECT
+
+\par \tab \tab this function triggers the sending of a remote frame.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vConfigMsgObj(ubyte ubObjNr, TCAN_SWObj *pstObj)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function sets up the message objects. This includes
+
+\par \tab \tab the 8 data bytes, the identifier (11- or 29-bit), the
+
+\par \tab \tab acceptance mask (11- or 29-bit), the data number (0-8
+
+\par \tab \tab bytes), the frame counter value and the XTD-bit (standard
+
+\par \tab \tab or extended identifier).  The direction bit (DIR), the NODE
+
+\par \tab \tab bit and the RMM (remote monitoring) bit can not be changed.
+
+\par \tab \tab The message is not sent; for this the function
+
+\par \tab \tab CAN_vTransmit must be called.
+
+\par \tab \tab The structure of the SW message object is defined in the
+
+\par \tab \tab header file CAN_164.H (see TCAN_SWObj).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object to be configured (0-31)
+
+\par \tab \tab *pstObj:
+
+\par \tab \tab Pointer on a message object
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vLoadData(ubyte ubObjNr, ubyte *pubData)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a hardware TRANSMIT OBJECT has to be loaded with data
+
+\par \tab \tab but not with a new identifier, this function may be used
+
+\par \tab \tab instead of the function CAN_vConfigMsgObj. The message
+
+\par \tab \tab object should be accessed by calling the function
+
+\par \tab \tab CAN_ubRequestMsgObj before calling this function. This
+
+\par \tab \tab prevents the CAN controller from working with invalid data.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object to be configured (0-31)
+
+\par \tab \tab *pubData:
+
+\par \tab \tab Pointer on a data buffer
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab ubyte CAN_ubMsgLost(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a RECEIVE OBJECT receives new data before the old object
+
+\par \tab \tab has been read, the old object is lost. The CAN controller
+
+\par \tab \tab indicates this by setting the message lost bit (MSGLST).
+
+\par \tab \tab This function returns the status of this bit.
+
+\par \tab \tab Note:
+
+\par \tab \tab This function resets the message lost bit (MSGLST).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object has lost a message, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab ubyte CAN_ubDelMsgObj(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function marks the selected message object as not
+
+\par \tab \tab valid. This means that this object cannot be sent or
+
+\par \tab \tab receive data. If the selected object is busy (meaning the
+
+\par \tab \tab object is transmitting a message or has received a new
+
+\par \tab \tab message) this function returns the value "0" and the object
+
+\par \tab \tab is not deleted.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object was deleted, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vReleaseObj(ubyte ubObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function resets the NEWDAT flag of the selected
+
+\par \tab \tab RECEIVE OBJECT, so that the CAN controller have access to
+
+\par \tab \tab it. This function must be called if the function
+
+\par \tab \tab CAN_ubNewData detects, that new data are present in the
+
+\par \tab \tab message object and the actual data have been read by
+
+\par \tab \tab calling the function CAN_vGetMsgObj.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubObjNr:
+
+\par \tab \tab Number of the message object (0-31)
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of CAN Node A:\par 
+\par 
+\tab General Configuration of the Node A:\par 
+\tab - set INIT and CCE\par 
+\par 
+\tab Configuration of the Node A Error Counter:\par 
+\tab - the error warning threshold value (warning level) is 96\par 
+\par 
+\tab Configuration of the used CAN Port Pins:\par 
+\tab - P4.5 is used for CAN Interface Input (RXDCA)\par 
+\tab - P4.6 is used for CAN Interface Output (TXDCA)\par 
+\par 
+\tab Configuration of the Node A Baud Rate:\par 
+\tab - required baud rate = 50.000 kbaud\par 
+\tab - real baud rate     = 50.000 kbaud\par 
+\tab - sample point       = 60.00 %\par 
+\tab - there are 5 time quanta before sample point\par 
+\tab - there are 4 time quanta after sample point\par 
+\tab - the (re)synchronization jump width is 2 time quanta\par 
+\tab - enable the module clock divider (by 8)\par 
+\par 
+\tab Configuration of CAN Node B:\par 
+\par 
+\tab General Configuration of the Node B:\par 
+\tab - set INIT and CCE\par 
+\par 
+\tab Configuration of the CAN Message Objects 0 - 31:\par 
+\par 
+\tab Configuration of Message Object 0:\par 
+\tab - message object 0 is valid\par 
+\par 
+\tab - message object is used as transmit object\par 
+\tab - standard 11-bit identifier\par 
+\tab - 8 valid data bytes\par 
+\tab - this message object works with CAN node A\par 
+\tab - remote monitoring is disabled\par 
+\par 
+\tab - acceptance mask 11-bit: 0x7FF\par 
+\tab - identifier 11-bit:      0x000\par 
+\par 
+\tab - functionality of standard message object\par 
+\par 
+\tab Configuration of Message Object 1:\par 
+\tab - message object 1 is valid\par 
+\par 
+\tab - message object is used as receive object\par 
+\tab - standard 11-bit identifier\par 
+\tab - 8 valid data bytes\par 
+\tab - this message object works with CAN node A\par 
+\tab - remote monitoring is disabled\par 
+\par 
+\tab - acceptance mask 11-bit: 0x7FF\par 
+\tab - identifier 11-bit:      0x000\par 
+\par 
+\tab - functionality of standard message object\par 
+\par 
+\tab Configuration of Service Request Nodes 0 - 7:\par 
+\par 
+
+}

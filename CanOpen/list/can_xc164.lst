@@ -1,0 +1,94 @@
+C166 COMPILER V7.53.0.0, CAN_XC164                                                         09/09/2014 14:34:55 PAGE 1   
+
+
+C166 COMPILER V7.53.0.0, COMPILATION OF MODULE CAN_XC164
+OBJECT MODULE PLACED IN .\obj\can_xc164.obj
+COMPILER INVOKED BY: d:\Keil\C166\BIN\C166.EXE CANopen\drivers\XC164\can_xc164.c MODV2 BROWSE INCDIR(.\CANopen\include;.
+                    -\CANopen\include\XC164_CANopen;.\CANopen) MODV2 DEBUG PRINT(.\list\can_xc164.lst) TABS(2) OBJECT(.\obj\can_xc164.obj) 
+
+ stmt lvl     source
+
+    1         #include "can_xc164.h"
+    2         #include "canfestival.h"
+    3         #include "main.h"
+    4         
+    5         
+    6         
+    7         
+    8         unsigned char canSend(CAN_PORT notused, Message *m) 
+    9         {
+   10  1        unsigned char i;
+   11  1        TCAN_SWObj SW_MO;
+   12  1        SW_MO.ulID=m->cob_id;
+   13  1        SW_MO.ulMask=m->cob_id;
+   14  1        for(i=0;i<(m->len);i++)
+   15  1        {
+   16  2          SW_MO.ubData[i]=m->data[i];
+   17  2        }
+   18  1        SW_MO.uwMsgCfg=(SW_MO.uwMsgCfg&0x0000)|((m->len)<<4);
+   19  1        if(!m->rtr)
+   20  1        {
+   21  2          CAN_vConfigMsgObj(0,&SW_MO);
+   22  2          CAN_vTransmit(0);
+   23  2        }
+   24  1        return 1;
+   25  1      }
+*** WARNING C47 IN LINE 8 OF CANopen\drivers\XC164\can_xc164.c: 'notused': unreferenced parameter
+   26         
+   27         unsigned char canReceive(CAN_PORT port,Message *m) 
+   28         {
+   29  1        TCAN_SWObj SW_R;
+   30  1        
+   31  1        if(CAN_ubNewData(1))
+   32  1        {
+   33  2          unsigned char i;
+   34  2          CAN_vReleaseObj(1);
+   35  2          CAN_vGetMsgObj(1,&SW_R);
+   36  2          m->cob_id=SW_R.ulID;
+*** WARNING C192 IN LINE 36 OF CANopen\drivers\XC164\can_xc164.c: '=': value truncated
+   37  2          m->len=(SW_R.uwMsgCfg&0x00f0)>>4;
+*** WARNING C192 IN LINE 37 OF CANopen\drivers\XC164\can_xc164.c: '=': value truncated
+   38  2          m->rtr=CAN_ubRequestMsgObj(1);
+   39  2          for(i=0;i<(m->len);i++)
+   40  2          {
+   41  3            m->data[i]=SW_R.ubData[i];
+   42  3          }
+   43  2          return 1;
+   44  2        }
+   45  1        return 0;
+   46  1      }
+*** WARNING C47 IN LINE 27 OF CANopen\drivers\XC164\can_xc164.c: 'port': unreferenced parameter
+   47         
+   48         
+   49         /***************************************************************************/
+   50         unsigned char canChangeBaudRate_driver( CAN_HANDLE fd, char* baud)
+C166 COMPILER V7.53.0.0, CAN_XC164                                                         09/09/2014 14:34:55 PAGE 2   
+
+   51         {
+   52  1      
+   53  1        return 0;
+   54  1      }
+*** WARNING C47 IN LINE 50 OF CANopen\drivers\XC164\can_xc164.c: 'fd': unreferenced parameter
+*** WARNING C47 IN LINE 50 OF CANopen\drivers\XC164\can_xc164.c: 'baud': unreferenced parameter
+   55         
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+  CODE SIZE        =         208     --------
+  NEAR-CONST SIZE  =    --------     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =    --------     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  6 WARNING(S),  0 ERROR(S)
